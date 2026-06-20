@@ -1,0 +1,103 @@
+[stage_b0d] run_dir=/root/mamba_recall_experiment/runs/20260620_180244 commit=cea032d cap_hours=4.00
+/root/miniconda3/envs/mamba2/lib/python3.10/site-packages/torch/nn/modules/transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+/root/miniconda3/envs/mamba2/lib/python3.10/site-packages/torch/nn/modules/transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+[B0D.1] starting stage_b0d_b01_dense_v8_seed0
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=1000 phase=(1, 2) denseN8=0.2104/2.337 singleN8=0.1909/2.440
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=2000 phase=(1, 2) denseN8=0.2015/2.373 singleN8=0.2039/2.380
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=3000 phase=(1, 2) denseN8=0.2039/3.838 singleN8=0.1967/4.210
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=4000 phase=(1, 2) denseN8=0.2061/3.669 singleN8=0.1927/4.253
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=5000 phase=(1, 2) denseN8=0.2083/3.513 singleN8=0.1906/3.763
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=6000 phase=(1, 2, 4) denseN8=0.2530/3.541 singleN8=0.2008/3.881
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=7000 phase=(1, 2, 4) denseN8=0.2538/4.131 singleN8=0.2190/4.400
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=8000 phase=(1, 2, 4) denseN8=0.2503/5.028 singleN8=0.2179/5.321
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=9000 phase=(1, 2, 4) denseN8=0.2581/5.133 singleN8=0.2106/5.379
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=10000 phase=(1, 2, 4) denseN8=0.2522/5.370 singleN8=0.2112/6.231
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=11000 phase=(1, 2, 4, 8) denseN8=0.4250/1.253 singleN8=0.3074/1.595
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=12000 phase=(1, 2, 4, 8) denseN8=0.4468/1.181 singleN8=0.3064/1.607
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=13000 phase=(1, 2, 4, 8) denseN8=0.4586/1.127 singleN8=0.3099/1.602
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=14000 phase=(1, 2, 4, 8) denseN8=0.4646/1.108 singleN8=0.3202/1.589
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=15000 phase=(1, 2, 4, 8) denseN8=0.4738/1.091 singleN8=0.3229/1.580
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=16000 phase=(1, 2, 4, 8) denseN8=0.4687/1.096 singleN8=0.3091/1.594
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=17000 phase=(1, 2, 4, 8) denseN8=0.4712/1.097 singleN8=0.3187/1.583
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=18000 phase=(1, 2, 4, 8) denseN8=0.4651/1.121 singleN8=0.3252/1.582
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=19000 phase=(1, 2, 4, 8) denseN8=0.4696/1.092 singleN8=0.3157/1.600
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=20000 phase=(1, 2, 4, 8) denseN8=0.4711/1.096 singleN8=0.3228/1.581
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=21000 phase=(1, 2, 4, 8) denseN8=0.4732/1.081 singleN8=0.3186/1.587
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=22000 phase=(1, 2, 4, 8) denseN8=0.4727/1.089 singleN8=0.3173/1.579
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=23000 phase=(1, 2, 4, 8) denseN8=0.4741/1.102 singleN8=0.3190/1.580
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=24000 phase=(1, 2, 4, 8) denseN8=0.4805/1.069 singleN8=0.3235/1.578
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=25000 phase=(1, 2, 4, 8) denseN8=0.4794/1.078 singleN8=0.3099/1.598
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=26000 phase=(1, 2, 4, 8) denseN8=0.4858/1.078 singleN8=0.3282/1.557
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=27000 phase=(1, 2, 4, 8) denseN8=0.4914/1.047 singleN8=0.3368/1.531
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=28000 phase=(1, 2, 4, 8) denseN8=0.4897/1.063 singleN8=0.3368/1.529
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=29000 phase=(1, 2, 4, 8) denseN8=0.5056/1.050 singleN8=0.3779/1.469
+[B0D.1] stage_b0d_b01_dense_v8_seed0 step=30000 phase=(1, 2, 4, 8) denseN8=0.5307/0.997 singleN8=0.4011/1.427
+/root/miniconda3/envs/mamba2/lib/python3.10/site-packages/torch/nn/modules/transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+[B0D.1] starting stage_b0d_b01_dense_v8_seed1
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=1000 phase=(1, 2) denseN8=0.2146/3.019 singleN8=0.2152/3.338
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=2000 phase=(1, 2) denseN8=0.2050/3.355 singleN8=0.2039/3.829
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=3000 phase=(1, 2) denseN8=0.2087/3.239 singleN8=0.2002/3.794
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=4000 phase=(1, 2) denseN8=0.2103/4.376 singleN8=0.2052/5.913
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=5000 phase=(1, 2) denseN8=0.2162/6.337 singleN8=0.2098/7.848
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=6000 phase=(1, 2, 4) denseN8=0.2629/4.219 singleN8=0.2007/6.027
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=7000 phase=(1, 2, 4) denseN8=0.2607/3.854 singleN8=0.2095/4.689
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=8000 phase=(1, 2, 4) denseN8=0.2616/5.099 singleN8=0.1985/8.445
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=9000 phase=(1, 2, 4) denseN8=0.2542/5.023 singleN8=0.2003/7.926
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=10000 phase=(1, 2, 4) denseN8=0.2609/5.497 singleN8=0.1980/7.708
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=11000 phase=(1, 2, 4, 8) denseN8=0.4184/1.291 singleN8=0.3041/1.613
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=12000 phase=(1, 2, 4, 8) denseN8=0.4326/1.203 singleN8=0.2903/1.624
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=13000 phase=(1, 2, 4, 8) denseN8=0.4327/1.196 singleN8=0.2861/1.651
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=14000 phase=(1, 2, 4, 8) denseN8=0.4655/1.121 singleN8=0.3206/1.579
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=15000 phase=(1, 2, 4, 8) denseN8=0.4670/1.117 singleN8=0.3193/1.576
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=16000 phase=(1, 2, 4, 8) denseN8=0.4735/1.098 singleN8=0.3229/1.567
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=17000 phase=(1, 2, 4, 8) denseN8=0.4749/1.094 singleN8=0.3264/1.556
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=18000 phase=(1, 2, 4, 8) denseN8=0.4966/1.066 singleN8=0.4362/1.327
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=19000 phase=(1, 2, 4, 8) denseN8=0.5791/0.881 singleN8=0.5020/1.133
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=20000 phase=(1, 2, 4, 8) denseN8=0.6091/0.789 singleN8=0.5161/1.084
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=21000 phase=(1, 2, 4, 8) denseN8=0.6398/0.728 singleN8=0.5479/0.970
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=22000 phase=(1, 2, 4, 8) denseN8=0.7827/0.455 singleN8=0.7401/0.569
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=23000 phase=(1, 2, 4, 8) denseN8=0.8774/0.275 singleN8=0.9005/0.263
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=24000 phase=(1, 2, 4, 8) denseN8=0.8135/0.620 singleN8=0.9282/0.190
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=25000 phase=(1, 2, 4, 8) denseN8=0.9196/0.180 singleN8=0.9618/0.150
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=26000 phase=(1, 2, 4, 8) denseN8=0.7326/1.176 singleN8=0.7281/1.304
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=27000 phase=(1, 2, 4, 8) denseN8=0.9329/0.133 singleN8=0.9897/0.044
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=28000 phase=(1, 2, 4, 8) denseN8=0.9359/0.128 singleN8=0.9944/0.024
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=29000 phase=(1, 2, 4, 8) denseN8=0.9379/0.116 singleN8=0.9938/0.021
+[B0D.1] stage_b0d_b01_dense_v8_seed1 step=30000 phase=(1, 2, 4, 8) denseN8=0.9209/0.222 singleN8=0.9927/0.034
+/root/miniconda3/envs/mamba2/lib/python3.10/site-packages/torch/nn/modules/transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+[B0D.1] starting stage_b0d_b01_dense_v8_seed2
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=1000 phase=(1, 2) denseN8=0.1986/2.323 singleN8=0.1913/2.356
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=2000 phase=(1, 2) denseN8=0.2046/2.847 singleN8=0.1917/2.870
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=3000 phase=(1, 2) denseN8=0.2092/3.155 singleN8=0.1984/3.176
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=4000 phase=(1, 2) denseN8=0.2029/2.814 singleN8=0.1974/2.811
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=5000 phase=(1, 2) denseN8=0.2045/3.131 singleN8=0.1962/3.089
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=6000 phase=(1, 2, 4) denseN8=0.2231/3.504 singleN8=0.1902/3.670
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=7000 phase=(1, 2, 4) denseN8=0.2354/4.487 singleN8=0.1932/4.616
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=8000 phase=(1, 2, 4) denseN8=0.2311/4.661 singleN8=0.2042/4.784
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=9000 phase=(1, 2, 4) denseN8=0.2395/4.975 singleN8=0.2037/5.148
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=10000 phase=(1, 2, 4) denseN8=0.2529/5.521 singleN8=0.2047/5.220
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=11000 phase=(1, 2, 4, 8) denseN8=0.3735/1.350 singleN8=0.2646/1.664
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=12000 phase=(1, 2, 4, 8) denseN8=0.4362/1.200 singleN8=0.2957/1.606
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=13000 phase=(1, 2, 4, 8) denseN8=0.3633/1.522 singleN8=0.2389/1.770
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=14000 phase=(1, 2, 4, 8) denseN8=0.4612/1.132 singleN8=0.3153/1.597
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=15000 phase=(1, 2, 4, 8) denseN8=0.4688/1.110 singleN8=0.3141/1.595
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=16000 phase=(1, 2, 4, 8) denseN8=0.4729/1.090 singleN8=0.3175/1.584
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=17000 phase=(1, 2, 4, 8) denseN8=0.4721/1.097 singleN8=0.3168/1.591
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=18000 phase=(1, 2, 4, 8) denseN8=0.4690/1.106 singleN8=0.3180/1.594
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=19000 phase=(1, 2, 4, 8) denseN8=0.4733/1.087 singleN8=0.3146/1.582
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=20000 phase=(1, 2, 4, 8) denseN8=0.4756/1.079 singleN8=0.3164/1.586
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=21000 phase=(1, 2, 4, 8) denseN8=0.4751/1.081 singleN8=0.3196/1.582
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=22000 phase=(1, 2, 4, 8) denseN8=0.4661/1.137 singleN8=0.3119/1.605
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=23000 phase=(1, 2, 4, 8) denseN8=0.4766/1.076 singleN8=0.3187/1.581
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=24000 phase=(1, 2, 4, 8) denseN8=0.4784/1.072 singleN8=0.3173/1.579
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=25000 phase=(1, 2, 4, 8) denseN8=0.4764/1.087 singleN8=0.3171/1.593
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=26000 phase=(1, 2, 4, 8) denseN8=0.4792/1.071 singleN8=0.3187/1.583
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=27000 phase=(1, 2, 4, 8) denseN8=0.4772/1.080 singleN8=0.3175/1.587
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=28000 phase=(1, 2, 4, 8) denseN8=0.4768/1.082 singleN8=0.3087/1.597
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=29000 phase=(1, 2, 4, 8) denseN8=0.4697/1.093 singleN8=0.3208/1.592
+[B0D.1] stage_b0d_b01_dense_v8_seed2 step=30000 phase=(1, 2, 4, 8) denseN8=0.4777/1.075 singleN8=0.3162/1.590
+[stage_b0d] stop after B0D.1 FAIL

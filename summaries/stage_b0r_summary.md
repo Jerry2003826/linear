@@ -1,0 +1,55 @@
+# Stage B0R Summary
+
+## Result
+
+- A2 artifact audit: complete.
+- A2 checkpoint fresh re-eval: PASS.
+- RNG isolation audit: PASS.
+- Data/label fingerprint audit: PASS.
+- Leak probes: pass.
+- Controlled reproduction: fail_plateau_30k.
+
+## Gate
+
+- Category: HIGH_VARIANCE_UNSTABLE
+- Whether Stage B is allowed: NO
+
+## Key metrics
+
+| substage | artifact_or_run | seed | step | eval_seed | N=1 acc | N=2 acc | N=4 acc | N=8 acc | N=8 CE | random acc | random CE | status |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| B0R.1 | A2.2 | 0 | 6000 | 0 | 0.1250 | 0.1805 | 0.2255 | 0.9742 | 0.0763 | 0.1250 | 2.0794 | ok |
+| B0R.1 | A2.2 | 0 | 6000 | 1 | 0.1271 | 0.1791 | 0.2188 | 0.9734 | 0.0732 | 0.1250 | 2.0794 | ok |
+| B0R.1 | A2.2 | 0 | 6000 | 2 | 0.1300 | 0.1713 | 0.2151 | 0.9766 | 0.0730 | 0.1250 | 2.0794 | ok |
+| B0R.1 | A2.2 | 0 | 6000 | 3 | 0.1314 | 0.1761 | 0.2194 | 0.9744 | 0.0736 | 0.1250 | 2.0794 | ok |
+| B0R.1 | A2.2 | 0 | 6000 | 4 | 0.1281 | 0.1772 | 0.2197 | 0.9765 | 0.0663 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed0_best_acc | 0 | 17000 | 0 | 1.0000 | 0.5540 | 0.3993 | 0.3266 | 1.5617 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed0_best_acc | 0 | 17000 | 1 | 1.0000 | 0.5676 | 0.4028 | 0.3306 | 1.5635 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed0_best_acc | 0 | 17000 | 2 | 1.0000 | 0.5711 | 0.4016 | 0.3240 | 1.5663 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed0_best_acc | 0 | 17000 | 3 | 1.0000 | 0.5639 | 0.3986 | 0.3217 | 1.5630 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed0_best_acc | 0 | 17000 | 4 | 1.0000 | 0.5609 | 0.4027 | 0.3264 | 1.5652 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed1_best_acc | 1 | 13000 | 0 | 1.0000 | 0.0000 | 0.0417 | 0.3296 | 1.5643 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed1_best_acc | 1 | 13000 | 1 | 1.0000 | 0.0001 | 0.0422 | 0.3273 | 1.5653 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed1_best_acc | 1 | 13000 | 2 | 1.0000 | 0.0000 | 0.0397 | 0.3271 | 1.5667 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed1_best_acc | 1 | 13000 | 3 | 1.0000 | 0.0001 | 0.0413 | 0.3226 | 1.5648 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed1_best_acc | 1 | 13000 | 4 | 1.0000 | 0.0001 | 0.0406 | 0.3244 | 1.5660 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed2_best_acc | 2 | 20000 | 0 | 0.8518 | 0.5486 | 0.0243 | 0.3312 | 1.5592 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed2_best_acc | 2 | 20000 | 1 | 0.8556 | 0.5527 | 0.0251 | 0.3318 | 1.5612 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed2_best_acc | 2 | 20000 | 2 | 0.8518 | 0.5478 | 0.0261 | 0.3237 | 1.5636 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed2_best_acc | 2 | 20000 | 3 | 0.8591 | 0.5483 | 0.0258 | 0.3194 | 1.5622 | 0.1250 | 2.0794 | ok |
+| B0R.1 | B0.1_seed2_best_acc | 2 | 20000 | 4 | 0.8547 | 0.5521 | 0.0275 | 0.3237 | 1.5624 | 0.1250 | 2.0794 | ok |
+| B0R.5 | stage_b0r_b05a_current_seed0 | 0 | 30000 | 0 |  |  |  | 0.3276 | 1.5611 | 0.1250 | 2.0794 | fail_plateau_30k |
+
+## Interpretation
+
+1. Was A2.2 a trustworthy result? yes.
+2. Did A2.2 accidentally inherit A2.1 fixed-batch overfit weights? no.
+3. Does fresh eval reproduce A2.2? yes.
+4. Is train/eval RNG now isolated? yes.
+5. Are A2/B0 data distributions identical? yes.
+6. Is current N=8 training reproducibly learnable? no.
+7. Should Stage B remain blocked? yes.
+
+## Recommended next step
+
+- Do not enter Stage B; switch to curriculum training recipe.

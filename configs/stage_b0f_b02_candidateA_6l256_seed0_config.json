@@ -1,0 +1,116 @@
+{
+  "checkpoint_interval": 2000,
+  "checkpoints": {
+    "best_by_accuracy": "/root/mamba_recall_experiment/runs/20260620_180244/checkpoints/stage_b0f_b02_candidateA_6l256_seed0_best_acc.pt",
+    "best_by_ce": "/root/mamba_recall_experiment/runs/20260620_180244/checkpoints/stage_b0f_b02_candidateA_6l256_seed0_best_ce.pt",
+    "latest": "/root/mamba_recall_experiment/runs/20260620_180244/checkpoints/stage_b0f_b02_candidateA_6l256_seed0_latest.pt"
+  },
+  "config": {
+    "batch_size": 128,
+    "d_model": 256,
+    "d_state": 16,
+    "dtype": "fp32",
+    "early_acc": null,
+    "early_patience": 3,
+    "eval_interval": 2000,
+    "eval_n_pairs": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "fixed_batch": false,
+    "gap_len": 0,
+    "grad_clip": 1.0,
+    "log_interval": 100,
+    "lr": 0.001,
+    "max_steps": 30000,
+    "model_type": "transformer",
+    "n_heads": 8,
+    "n_keys": 256,
+    "n_layers": 6,
+    "n_pairs": null,
+    "n_values": 8,
+    "q_count": 1,
+    "run_id": "stage_b0f_b02_candidateA_6l256_seed0",
+    "seed": 0,
+    "stage": "B0F",
+    "train_n_pairs": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "warmup_steps": 500
+  },
+  "curriculum_phases": [
+    {
+      "end_step": 5000,
+      "q_cap": 8,
+      "q_count_mode": "capped",
+      "sampling_weights": "uniform",
+      "start_step": 0,
+      "train_n_pairs": [
+        1,
+        2
+      ]
+    },
+    {
+      "end_step": 10000,
+      "q_cap": 8,
+      "q_count_mode": "capped",
+      "sampling_weights": "uniform",
+      "start_step": 5000,
+      "train_n_pairs": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "end_step": 30000,
+      "q_cap": 8,
+      "q_count_mode": "capped",
+      "sampling_weights": "uniform",
+      "start_step": 10000,
+      "train_n_pairs": [
+        1,
+        2,
+        4,
+        8
+      ]
+    }
+  ],
+  "eval_batch_size": 128,
+  "eval_modes": [
+    {
+      "name": "induction_capped",
+      "q_cap": 8,
+      "q_count_mode": "capped"
+    },
+    {
+      "name": "single_query",
+      "q_cap": 1,
+      "q_count_mode": "single"
+    }
+  ],
+  "eval_n_pairs": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "eval_samples_per_condition": 8192,
+  "eval_seed_rule": "930000 + cfg.seed * 10000 + eval_seed * 1000 + n_pairs + q_cap",
+  "eval_seeds": [
+    0,
+    1
+  ],
+  "git_commit": "f96a61f",
+  "recipe": "random-init larger Transformer candidate 6L/256 N_VALUES=8",
+  "resume_from_run_id": null,
+  "rng_policy": "train uses one CPU torch.Generator; eval uses fresh independent CPU generators",
+  "run_id": "stage_b0f_b02_candidateA_6l256_seed0",
+  "substage": "B0F.2",
+  "train_generator_seed": 22345
+}

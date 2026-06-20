@@ -40,3 +40,11 @@ B0D,B0D_1_dense_v8_seed2,transformer,,0.001,2,30000,yes,"0-5k:1,2;5k-10k:1,2,4;1
 B0E,B0E_1_induction_v8_seed0,transformer,,0.001,0,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.3068,completed
 B0E,B0E_1_induction_v8_seed1,transformer,,0.001,1,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.1336,pass_early_stop
 B0E,B0E_1_induction_v8_seed2,transformer,,0.001,2,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.3398,completed
+B0F,B0F_1_extend4l256_seed0,transformer,,0.001,0,100000,yes,"resume B0E;after30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.6134,completed
+B0F,B0F_1_extend4l256_seed2,transformer,,0.001,2,100000,yes,"resume B0E;after30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.6835,completed
+B0F,B0F_2_candidateA_6l256_seed0,transformer,,0.001,0,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.3359,completed
+B0F,B0F_2_candidateA_6l256_seed1,transformer,,0.001,1,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.3363,completed
+B0F,B0F_2_candidateA_6l256_seed2,transformer,,0.001,2,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.3360,completed
+B0F,B0F_2_candidateB_4l384_seed0,transformer,,0.0005,0,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.2635,completed
+B0F,B0F_2_candidateB_4l384_seed1,transformer,,0.0005,1,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.1211,pass_early_stop
+B0F,B0F_2_candidateB_4l384_seed2,transformer,,0.0005,2,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.2635,completed

@@ -1,0 +1,65 @@
+# Stage B0F Summary
+
+## Result
+
+- B0E checkpoint/curve audit: PASS
+- B0F.1 4L/256 extension to 100k: FAIL_PLATEAU
+- B0F.2 larger Transformer candidate: Candidate B 4L/384 FAIL
+- B0F.3 N_VALUES=16 formal pilot: SKIPPED
+- Cost update: complete
+
+## Gate
+
+- B0F.1:
+  FAIL_PLATEAU
+
+- B0F.2:
+  candidate result if run:
+    FAIL
+
+- B0F.3:
+  SKIPPED
+
+- Whether full Stage B is allowed:
+  NO
+
+- Recommended Transformer control:
+  do not proceed
+
+- Recommended formal task:
+  do not proceed
+
+## Key metrics
+
+| substage | model_size | eval_mode | task_format | n_values | q_count_mode | q_cap | lr | seed | step | N=1 acc | N=2 acc | N=4 acc | N=8 acc | N=16 acc | N=32 acc | N=64 acc | CE_N8 | CE_N16 | all_correct_N8 | all_correct_N16 | random_acc | random_CE | status |
+| --- | --- | --- | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| B0F.1 | 4L/256 | induction_capped | key_next_value | 8 | capped | 8 | 0.001 | 0 | 100000 | 1.0000 | 0.9998 | 0.9995 | 0.7239 |  |  |  | 0.5111 |  | 0.0254 |  | 0.1250 | 2.0794 | completed |
+| B0F.1 | 4L/256 | single_query | key_next_value | 8 | single | 1 | 0.001 | 0 | 100000 | 1.0000 | 0.9999 | 0.9996 | 0.6128 |  |  |  | 0.8205 |  | 0.6128 |  | 0.1250 | 2.0794 | completed |
+| B0F.1 | 4L/256 | induction_capped | key_next_value | 8 | capped | 8 | 0.001 | 2 | 100000 | 1.0000 | 0.9999 | 0.9999 | 0.6640 |  |  |  | 0.6616 |  | 0.0079 |  | 0.1250 | 2.0794 | completed |
+| B0F.1 | 4L/256 | single_query | key_next_value | 8 | single | 1 | 0.001 | 2 | 100000 | 1.0000 | 1.0000 | 1.0000 | 0.6106 |  |  |  | 0.8254 |  | 0.6106 |  | 0.1250 | 2.0794 | completed |
+| B0F.2 | 6L/256 | induction_capped | key_next_value | 8 | capped | 8 | 0.001 | 0 | 30000 | 1.0000 | 0.9999 | 0.7542 | 0.5576 |  |  |  | 0.8928 |  | 0.0013 |  | 0.1250 | 2.0794 | completed |
+| B0F.2 | 6L/256 | single_query | key_next_value | 8 | single | 1 | 0.001 | 0 | 30000 | 1.0000 | 1.0000 | 0.5947 | 0.4167 |  |  |  | 1.3364 |  | 0.4167 |  | 0.1250 | 2.0794 | completed |
+| B0F.2 | 6L/256 | induction_capped | key_next_value | 8 | capped | 8 | 0.001 | 1 | 30000 | 1.0000 | 0.9999 | 0.9987 | 0.6096 |  |  |  | 0.8552 |  | 0.0046 |  | 0.1250 | 2.0794 | completed |
+| B0F.2 | 6L/256 | single_query | key_next_value | 8 | single | 1 | 0.001 | 1 | 30000 | 1.0000 | 0.9999 | 0.9979 | 0.5126 |  |  |  | 1.0871 |  | 0.5126 |  | 0.1250 | 2.0794 | completed |
+| B0F.2 | 6L/256 | induction_capped | key_next_value | 8 | capped | 8 | 0.001 | 2 | 30000 | 1.0000 | 0.9999 | 0.9975 | 0.5195 |  |  |  | 1.0794 |  | 0.0015 |  | 0.1250 | 2.0794 | completed |
+| B0F.2 | 6L/256 | single_query | key_next_value | 8 | single | 1 | 0.001 | 2 | 30000 | 1.0000 | 1.0000 | 0.9974 | 0.4994 |  |  |  | 1.1480 |  | 0.4994 |  | 0.1250 | 2.0794 | completed |
+| B0F.2 | 4L/384 | induction_capped | key_next_value | 8 | capped | 8 | 0.0005 | 0 | 30000 | 1.0000 | 1.0000 | 0.8897 | 0.6119 |  |  |  | 0.7699 |  | 0.0043 |  | 0.1250 | 2.0794 | completed |
+| B0F.2 | 4L/384 | single_query | key_next_value | 8 | single | 1 | 0.0005 | 0 | 30000 | 1.0000 | 1.0000 | 0.7822 | 0.5055 |  |  |  | 1.0946 |  | 0.5055 |  | 0.1250 | 2.0794 | completed |
+| B0F.2 | 4L/384 | induction_capped | key_next_value | 8 | capped | 8 | 0.0005 | 1 | 14000 | 1.0000 | 0.9999 | 0.9983 | 0.9865 |  |  |  | 0.0450 |  | 0.8960 |  | 0.1250 | 2.0794 | pass_early_stop |
+| B0F.2 | 4L/384 | single_query | key_next_value | 8 | single | 1 | 0.0005 | 1 | 14000 | 1.0000 | 1.0000 | 0.9995 | 0.9956 |  |  |  | 0.0275 |  | 0.9956 |  | 0.1250 | 2.0794 | pass_early_stop |
+| B0F.2 | 4L/384 | induction_capped | key_next_value | 8 | capped | 8 | 0.0005 | 2 | 30000 | 1.0000 | 0.9969 | 0.7517 | 0.5587 |  |  |  | 0.9021 |  | 0.0016 |  | 0.1250 | 2.0794 | completed |
+| B0F.2 | 4L/384 | single_query | key_next_value | 8 | single | 1 | 0.0005 | 2 | 30000 | 1.0000 | 0.9995 | 0.5844 | 0.4177 |  |  |  | 1.3291 |  | 0.4177 |  | 0.1250 | 2.0794 | completed |
+
+## Interpretation
+
+1. Did extending 4L/256 to 100k solve seed0/seed2? NO.
+2. If not, did larger Transformer stabilize N=8? NO.
+3. Which control size is the smallest stable Transformer control? do not proceed.
+4. Is N_VALUES=16 formal training viable? NO.
+5. Is full Stage B allowed? NO.
+6. If full Stage B proceeds, should Mamba use the same key_next_value format and curriculum? NO.
+7. Is the projected cost acceptable? NO.
+
+## Recommended next step
+
+- Do not enter Stage B; increase Transformer control size further.

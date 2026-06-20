@@ -1,0 +1,250 @@
+{
+  "outcome": {
+    "best": {
+      "best_acc_score": 0.8279342651367188,
+      "best_acc_step": 30000,
+      "best_ce_score": 0.3201376075624567,
+      "best_ce_step": 28000,
+      "by_mode": {
+        "induction_capped": {
+          "1": {
+            "accuracy": 1.0,
+            "all_correct": 1.0,
+            "cross_entropy": 2.385493165224517e-07,
+            "step": 30000
+          },
+          "2": {
+            "accuracy": 1.0,
+            "all_correct": 1.0,
+            "cross_entropy": 5.948164933045064e-05,
+            "step": 26000
+          },
+          "4": {
+            "accuracy": 0.754241943359375,
+            "all_correct": 0.23583984375,
+            "cross_entropy": 0.38959242030978203,
+            "step": 30000
+          },
+          "8": {
+            "accuracy": 0.55914306640625,
+            "all_correct": 0.001708984375,
+            "cross_entropy": 0.8859191462397575,
+            "step": 28000
+          }
+        },
+        "single_query": {
+          "1": {
+            "accuracy": 1.0,
+            "all_correct": 1.0,
+            "cross_entropy": 2.328304760101929e-07,
+            "step": 30000
+          },
+          "2": {
+            "accuracy": 1.0,
+            "all_correct": 1.0,
+            "cross_entropy": 1.0629054607136368e-05,
+            "step": 30000
+          },
+          "4": {
+            "accuracy": 0.5947265625,
+            "all_correct": 0.5947265625,
+            "cross_entropy": 0.7046653954312205,
+            "step": 30000
+          },
+          "8": {
+            "accuracy": 0.416748046875,
+            "all_correct": 0.416748046875,
+            "cross_entropy": 1.3279115464538336,
+            "step": 30000
+          }
+        }
+      }
+    },
+    "config_json": "/root/mamba_recall_experiment/runs/20260620_180244/configs/stage_b0f_b02_candidateA_6l256_seed0_config.json",
+    "elapsed_sec": 1209.113091468811,
+    "finals": {
+      "induction_capped": {
+        "1": {
+          "accuracy": 1.0,
+          "all_correct": 1.0,
+          "cross_entropy": 2.385493165224517e-07,
+          "step": 30000
+        },
+        "2": {
+          "accuracy": 0.99993896484375,
+          "all_correct": 0.9998779296875,
+          "cross_entropy": 0.0004747333127284037,
+          "step": 30000
+        },
+        "4": {
+          "accuracy": 0.754241943359375,
+          "all_correct": 0.23583984375,
+          "cross_entropy": 0.38959242030978203,
+          "step": 30000
+        },
+        "8": {
+          "accuracy": 0.55755615234375,
+          "all_correct": 0.0013427734375,
+          "cross_entropy": 0.8927560057491064,
+          "step": 30000
+        }
+      },
+      "single_query": {
+        "1": {
+          "accuracy": 1.0,
+          "all_correct": 1.0,
+          "cross_entropy": 2.328304760101929e-07,
+          "step": 30000
+        },
+        "2": {
+          "accuracy": 1.0,
+          "all_correct": 1.0,
+          "cross_entropy": 1.0629054607136368e-05,
+          "step": 30000
+        },
+        "4": {
+          "accuracy": 0.5947265625,
+          "all_correct": 0.5947265625,
+          "cross_entropy": 0.7046653954312205,
+          "step": 30000
+        },
+        "8": {
+          "accuracy": 0.416748046875,
+          "all_correct": 0.416748046875,
+          "cross_entropy": 1.3363957479596138,
+          "step": 30000
+        }
+      }
+    },
+    "model_size": "6L/256",
+    "notes": "",
+    "per_run_csv": "/root/mamba_recall_experiment/runs/20260620_180244/results/stage_b0f_b02_candidateA_6l256_seed0.csv",
+    "recipe": "random-init larger Transformer candidate 6L/256 N_VALUES=8",
+    "run_id": "stage_b0f_b02_candidateA_6l256_seed0",
+    "seed": 0,
+    "start_step": 0,
+    "status": "completed",
+    "step": 30000,
+    "substage": "B0F.2",
+    "trained_steps": 30000
+  },
+  "run_meta": {
+    "checkpoint_interval": 2000,
+    "checkpoints": {
+      "best_by_accuracy": "/root/mamba_recall_experiment/runs/20260620_180244/checkpoints/stage_b0f_b02_candidateA_6l256_seed0_best_acc.pt",
+      "best_by_ce": "/root/mamba_recall_experiment/runs/20260620_180244/checkpoints/stage_b0f_b02_candidateA_6l256_seed0_best_ce.pt",
+      "latest": "/root/mamba_recall_experiment/runs/20260620_180244/checkpoints/stage_b0f_b02_candidateA_6l256_seed0_latest.pt"
+    },
+    "config": {
+      "batch_size": 128,
+      "d_model": 256,
+      "d_state": 16,
+      "dtype": "fp32",
+      "early_acc": null,
+      "early_patience": 3,
+      "eval_interval": 2000,
+      "eval_n_pairs": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "fixed_batch": false,
+      "gap_len": 0,
+      "grad_clip": 1.0,
+      "log_interval": 100,
+      "lr": 0.001,
+      "max_steps": 30000,
+      "model_type": "transformer",
+      "n_heads": 8,
+      "n_keys": 256,
+      "n_layers": 6,
+      "n_pairs": null,
+      "n_values": 8,
+      "q_count": 1,
+      "run_id": "stage_b0f_b02_candidateA_6l256_seed0",
+      "seed": 0,
+      "stage": "B0F",
+      "train_n_pairs": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "warmup_steps": 500
+    },
+    "curriculum_phases": [
+      {
+        "end_step": 5000,
+        "q_cap": 8,
+        "q_count_mode": "capped",
+        "sampling_weights": "uniform",
+        "start_step": 0,
+        "train_n_pairs": [
+          1,
+          2
+        ]
+      },
+      {
+        "end_step": 10000,
+        "q_cap": 8,
+        "q_count_mode": "capped",
+        "sampling_weights": "uniform",
+        "start_step": 5000,
+        "train_n_pairs": [
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "end_step": 30000,
+        "q_cap": 8,
+        "q_count_mode": "capped",
+        "sampling_weights": "uniform",
+        "start_step": 10000,
+        "train_n_pairs": [
+          1,
+          2,
+          4,
+          8
+        ]
+      }
+    ],
+    "eval_batch_size": 128,
+    "eval_modes": [
+      {
+        "name": "induction_capped",
+        "q_cap": 8,
+        "q_count_mode": "capped"
+      },
+      {
+        "name": "single_query",
+        "q_cap": 1,
+        "q_count_mode": "single"
+      }
+    ],
+    "eval_n_pairs": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "eval_samples_per_condition": 8192,
+    "eval_seed_rule": "930000 + cfg.seed * 10000 + eval_seed * 1000 + n_pairs + q_cap",
+    "eval_seeds": [
+      0,
+      1
+    ],
+    "git_commit": "f96a61f",
+    "recipe": "random-init larger Transformer candidate 6L/256 N_VALUES=8",
+    "resume_from_run_id": null,
+    "rng_policy": "train uses one CPU torch.Generator; eval uses fresh independent CPU generators",
+    "run_id": "stage_b0f_b02_candidateA_6l256_seed0",
+    "substage": "B0F.2",
+    "train_generator_seed": 22345
+  },
+  "status": "completed",
+  "terminal": true,
+  "updated_at": 1781992535.430038
+}

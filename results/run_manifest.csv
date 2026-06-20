@@ -1,0 +1,33 @@
+stage,job_id,model_type,d_state,lr,seed,max_steps,mixed_load,train_n_pairs,eval_n_pairs,dtype,estimated_gpu_hours,status
+B,B1_tf_lr0.0002_seed0,transformer,,0.0002,0,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",fp32,0.7202125964341339,planned_screening_budget_aware
+B,B1_tf_lr0.0005_seed0,transformer,,0.0005,0,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",fp32,0.7202125964341339,planned_screening_budget_aware
+B,B1_tf_lr0.001_seed0,transformer,,0.001,0,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",fp32,0.7202125964341339,planned_screening_budget_aware
+B,B2_tf_bestlr_seed1,transformer,,best,1,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",fp32,0.7202125964341339,planned_final_seed_best_lr_only
+B,B2_tf_bestlr_seed2,transformer,,best,2,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",fp32,0.7202125964341339,planned_final_seed_best_lr_only
+C,C1_mamba_d8_lr0.0002_seed0,mamba,8,0.0002,0,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_screening_budget_aware
+C,C1_mamba_d8_lr0.0005_seed0,mamba,8,0.0005,0,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_screening_budget_aware
+C,C1_mamba_d8_lr0.001_seed0,mamba,8,0.001,0,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_screening_budget_aware
+C,C2_mamba_d8_bestlr_seed1,mamba,8,best,1,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_final_seed_best_lr_only
+C,C2_mamba_d8_bestlr_seed2,mamba,8,best,2,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_final_seed_best_lr_only
+C,C1_mamba_d16_lr0.0002_seed0,mamba,16,0.0002,0,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_screening_budget_aware
+C,C1_mamba_d16_lr0.0005_seed0,mamba,16,0.0005,0,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_screening_budget_aware
+C,C1_mamba_d16_lr0.001_seed0,mamba,16,0.001,0,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_screening_budget_aware
+C,C2_mamba_d16_bestlr_seed1,mamba,16,best,1,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_final_seed_best_lr_only
+C,C2_mamba_d16_bestlr_seed2,mamba,16,best,2,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_final_seed_best_lr_only
+C,C1_mamba_d32_lr0.0002_seed0,mamba,32,0.0002,0,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_screening_budget_aware
+C,C1_mamba_d32_lr0.0005_seed0,mamba,32,0.0005,0,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_screening_budget_aware
+C,C1_mamba_d32_lr0.001_seed0,mamba,32,0.001,0,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_screening_budget_aware
+C,C2_mamba_d32_bestlr_seed1,mamba,32,best,1,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_final_seed_best_lr_only
+C,C2_mamba_d32_bestlr_seed2,mamba,32,best,2,100000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",bf16_or_fp32,0.7153895431094699,planned_final_seed_best_lr_only
+A2,A2_1_tf_n8_fixed_overfit,transformer,,0.001,0,10000,no,8,8,fp32,0.0813,pass_overfit
+A2,A2_2_tf_n8_bestlr_to100k,transformer,,0.001,0,100000,no,8,8,fp32,0.8130,pass_strong
+A2,A2_3a_tf_n8_altlr,transformer,,0.0005,0,60000,no,8,8,fp32,0.4878,skipped_not_needed
+A2,A2_3b_tf_curriculum,transformer,,best_of_a2_2_a2_3a,0,100000,yes,"1,2,4 then 1,2,4,8","1,2,4,8",fp32,0.8130,skipped_not_needed
+B0,B0_1_tf_n8_seed0,transformer,,0.001,0,20000,no,8,8,fp32,0.1667,completed
+B0,B0_1_tf_n8_seed1,transformer,,0.001,1,20000,no,8,8,fp32,0.1667,completed
+B0,B0_1_tf_n8_seed2,transformer,,0.001,2,20000,no,8,8,fp32,0.1667,completed
+B0,B0_2a_tf_uniform_mixed,transformer,,0.001,0,20000,yes,"1,2,4,8,16,32,64","1,2,4,8,16,32,64",fp32,0.5000,skipped_b01_failed
+B0,B0_2b_tf_curriculum_mixed,transformer,,0.001,0,30000,yes,"1,2,4,8 then 1,2,4,8,16,32,64","1,2,4,8,16,32,64",fp32,0.7500,skipped_b01_failed
+B0R,B0R_5a_current_seed0,transformer,,0.001,0,60000,no,8,8,fp32,0.5106,fail_plateau_30k
+B0R,B0R_1_checkpoint_reeval,transformer,,none,n/a,0,no,none,"1,2,4,8",fp32,0.1000,complete
+B0R,B0R_5b_eval_interval_10000,transformer,,0.001,0,60000,no,8,8,fp32,0.5106,skipped_b05a_failed_rng_passed

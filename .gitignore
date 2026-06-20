@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Large or machine-local runtime artifacts
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.pid
+
+# Local environments and notebooks
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Temporary files
+tmp/
+*.tmp

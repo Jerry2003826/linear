@@ -37,3 +37,6 @@ B0C,B0C_1_curriculum_v8_seed2,transformer,,0.001,2,30000,yes,"0-5k:1,2;5k-10k:1,
 B0D,B0D_1_dense_v8_seed0,transformer,,0.001,0,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=dense_capped,single_query",fp32,0.3082,completed
 B0D,B0D_1_dense_v8_seed1,transformer,,0.001,1,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=dense_capped,single_query",fp32,0.3348,completed
 B0D,B0D_1_dense_v8_seed2,transformer,,0.001,2,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=dense_capped,single_query",fp32,0.3338,completed
+B0E,B0E_1_induction_v8_seed0,transformer,,0.001,0,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.3068,completed
+B0E,B0E_1_induction_v8_seed1,transformer,,0.001,1,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.1336,pass_early_stop
+B0E,B0E_1_induction_v8_seed2,transformer,,0.001,2,30000,yes,"0-5k:1,2;5k-10k:1,2,4;10k-30k:1,2,4,8;q_count_mode=capped;q_cap=8","1,2,4,8;eval_modes=induction_capped,single_query",fp32,0.3398,completed

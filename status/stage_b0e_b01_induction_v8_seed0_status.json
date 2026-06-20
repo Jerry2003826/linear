@@ -1,0 +1,245 @@
+{
+  "outcome": {
+    "best": {
+      "best_acc_score": 0.9279747070977464,
+      "best_acc_step": 27000,
+      "best_ce_score": 0.14088159448490867,
+      "best_ce_step": 30000,
+      "by_mode": {
+        "induction_capped": {
+          "1": {
+            "accuracy": 1.0,
+            "all_correct": 1.0,
+            "cross_entropy": 1.4769439191653078e-06,
+            "step": 24000
+          },
+          "2": {
+            "accuracy": 1.0,
+            "all_correct": 1.0,
+            "cross_entropy": 3.694507235252331e-06,
+            "step": 30000
+          },
+          "4": {
+            "accuracy": 0.9996032775379717,
+            "all_correct": 0.9984130859375,
+            "cross_entropy": 0.00172038425057508,
+            "step": 21000
+          },
+          "8": {
+            "accuracy": 0.7126465030014515,
+            "all_correct": 0.0189208984375,
+            "cross_entropy": 0.558886943385005,
+            "step": 30000
+          }
+        },
+        "single_query": {
+          "1": {
+            "accuracy": 1.0,
+            "all_correct": 1.0,
+            "cross_entropy": 1.4788065296755804e-06,
+            "step": 24000
+          },
+          "2": {
+            "accuracy": 1.0,
+            "all_correct": 1.0,
+            "cross_entropy": 3.5359370613718966e-06,
+            "step": 30000
+          },
+          "4": {
+            "accuracy": 0.9998779301531613,
+            "all_correct": 0.9998779296875,
+            "cross_entropy": 0.0008326643956024782,
+            "step": 23000
+          },
+          "8": {
+            "accuracy": 0.6074218912981451,
+            "all_correct": 0.607421875,
+            "cross_entropy": 0.833854179829359,
+            "step": 27000
+          }
+        }
+      }
+    },
+    "config_json": "/root/mamba_recall_experiment/runs/20260620_180244/configs/stage_b0e_b01_induction_v8_seed0_config.json",
+    "elapsed_sec": 1104.4940693378448,
+    "finals": {
+      "induction_capped": {
+        "1": {
+          "accuracy": 1.0,
+          "all_correct": 1.0,
+          "cross_entropy": 5.595645877320976e-06,
+          "step": 30000
+        },
+        "2": {
+          "accuracy": 1.0,
+          "all_correct": 1.0,
+          "cross_entropy": 3.694507235252331e-06,
+          "step": 30000
+        },
+        "4": {
+          "accuracy": 0.9988708612509072,
+          "all_correct": 0.9954833984375,
+          "cross_entropy": 0.0046301444015171,
+          "step": 30000
+        },
+        "8": {
+          "accuracy": 0.7126465030014515,
+          "all_correct": 0.0189208984375,
+          "cross_entropy": 0.558886943385005,
+          "step": 30000
+        }
+      },
+      "single_query": {
+        "1": {
+          "accuracy": 1.0,
+          "all_correct": 1.0,
+          "cross_entropy": 5.7776219577476695e-06,
+          "step": 30000
+        },
+        "2": {
+          "accuracy": 1.0,
+          "all_correct": 1.0,
+          "cross_entropy": 3.5359370613718966e-06,
+          "step": 30000
+        },
+        "4": {
+          "accuracy": 0.9997558603063226,
+          "all_correct": 0.999755859375,
+          "cross_entropy": 0.003184159405122955,
+          "step": 30000
+        },
+        "8": {
+          "accuracy": 0.5994873228482902,
+          "all_correct": 0.5994873046875,
+          "cross_entropy": 0.8407299877144396,
+          "step": 30000
+        }
+      }
+    },
+    "notes": "",
+    "per_run_csv": "/root/mamba_recall_experiment/runs/20260620_180244/results/stage_b0e_b01_induction_v8_seed0.csv",
+    "recipe": "induction capped curriculum N_VALUES=8",
+    "run_id": "stage_b0e_b01_induction_v8_seed0",
+    "status": "completed",
+    "step": 30000,
+    "substage": "B0E.1"
+  },
+  "run_meta": {
+    "checkpoint_interval": 1000,
+    "checkpoints": {
+      "best_by_accuracy": "/root/mamba_recall_experiment/runs/20260620_180244/checkpoints/stage_b0e_b01_induction_v8_seed0_best_acc.pt",
+      "best_by_ce": "/root/mamba_recall_experiment/runs/20260620_180244/checkpoints/stage_b0e_b01_induction_v8_seed0_best_ce.pt",
+      "latest": "/root/mamba_recall_experiment/runs/20260620_180244/checkpoints/stage_b0e_b01_induction_v8_seed0_latest.pt"
+    },
+    "config": {
+      "batch_size": 192,
+      "d_model": 256,
+      "d_state": 16,
+      "dtype": "fp32",
+      "early_acc": null,
+      "early_patience": 3,
+      "eval_interval": 1000,
+      "eval_n_pairs": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "fixed_batch": false,
+      "gap_len": 0,
+      "grad_clip": 1.0,
+      "log_interval": 100,
+      "lr": 0.001,
+      "max_steps": 30000,
+      "model_type": "transformer",
+      "n_heads": 8,
+      "n_keys": 256,
+      "n_layers": 4,
+      "n_pairs": null,
+      "n_values": 8,
+      "q_count": 1,
+      "run_id": "stage_b0e_b01_induction_v8_seed0",
+      "seed": 0,
+      "stage": "B0E",
+      "train_n_pairs": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "warmup_steps": 500
+    },
+    "curriculum_phases": [
+      {
+        "end_step": 5000,
+        "q_cap": 8,
+        "q_count_mode": "capped",
+        "sampling_weights": "uniform",
+        "start_step": 0,
+        "train_n_pairs": [
+          1,
+          2
+        ]
+      },
+      {
+        "end_step": 10000,
+        "q_cap": 8,
+        "q_count_mode": "capped",
+        "sampling_weights": "uniform",
+        "start_step": 5000,
+        "train_n_pairs": [
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "end_step": 30000,
+        "q_cap": 8,
+        "q_count_mode": "capped",
+        "sampling_weights": "uniform",
+        "start_step": 10000,
+        "train_n_pairs": [
+          1,
+          2,
+          4,
+          8
+        ]
+      }
+    ],
+    "eval_batch_size": 192,
+    "eval_modes": [
+      {
+        "name": "induction_capped",
+        "q_cap": 8,
+        "q_count_mode": "capped"
+      },
+      {
+        "name": "single_query",
+        "q_cap": 1,
+        "q_count_mode": "single"
+      }
+    ],
+    "eval_n_pairs": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "eval_samples_per_condition": 8192,
+    "eval_seed_rule": "930000 + cfg.seed * 10000 + eval_seed * 1000 + n_pairs + q_cap",
+    "eval_seeds": [
+      0,
+      1
+    ],
+    "git_commit": "6deb77b",
+    "recipe": "induction capped curriculum N_VALUES=8",
+    "rng_policy": "train uses one CPU torch.Generator; eval uses fresh independent CPU generators",
+    "run_id": "stage_b0e_b01_induction_v8_seed0",
+    "substage": "B0E.1",
+    "train_generator_seed": 22345
+  },
+  "status": "completed",
+  "terminal": true,
+  "updated_at": 1781982735.5850523
+}

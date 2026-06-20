@@ -1,0 +1,85 @@
+[stage_b0e] run_dir=/root/mamba_recall_experiment/runs/20260620_180244 commit=6deb77b cap_hours=4.00
+/root/miniconda3/envs/mamba2/lib/python3.10/site-packages/torch/nn/modules/transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+/root/miniconda3/envs/mamba2/lib/python3.10/site-packages/torch/nn/modules/transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+[B0E.1] starting stage_b0e_b01_induction_v8_seed0
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=1000 phase=(1, 2) inductionN8=0.1995/4.480 singleN8=0.2112/3.382
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=2000 phase=(1, 2) inductionN8=0.2156/8.069 singleN8=0.2229/7.624
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=3000 phase=(1, 2) inductionN8=0.2025/8.308 singleN8=0.2191/8.183
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=4000 phase=(1, 2) inductionN8=0.2159/7.806 singleN8=0.2310/7.152
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=5000 phase=(1, 2) inductionN8=0.2311/7.944 singleN8=0.2351/7.313
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=6000 phase=(1, 2, 4) inductionN8=0.2321/5.209 singleN8=0.2284/4.725
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=7000 phase=(1, 2, 4) inductionN8=0.2402/6.580 singleN8=0.2266/6.472
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=8000 phase=(1, 2, 4) inductionN8=0.2422/6.750 singleN8=0.2245/5.835
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=9000 phase=(1, 2, 4) inductionN8=0.2397/7.065 singleN8=0.2188/6.713
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=10000 phase=(1, 2, 4) inductionN8=0.2462/8.255 singleN8=0.2084/8.767
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=11000 phase=(1, 2, 4, 8) inductionN8=0.5296/1.075 singleN8=0.4822/1.165
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=12000 phase=(1, 2, 4, 8) inductionN8=0.5565/1.051 singleN8=0.4825/1.197
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=13000 phase=(1, 2, 4, 8) inductionN8=0.5934/0.911 singleN8=0.4763/1.152
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=14000 phase=(1, 2, 4, 8) inductionN8=0.6163/0.854 singleN8=0.4990/1.122
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=15000 phase=(1, 2, 4, 8) inductionN8=0.6304/0.803 singleN8=0.5043/1.110
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=16000 phase=(1, 2, 4, 8) inductionN8=0.6302/0.798 singleN8=0.4996/1.118
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=17000 phase=(1, 2, 4, 8) inductionN8=0.6470/0.757 singleN8=0.5067/1.106
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=18000 phase=(1, 2, 4, 8) inductionN8=0.6350/0.784 singleN8=0.4860/1.137
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=19000 phase=(1, 2, 4, 8) inductionN8=0.6466/0.745 singleN8=0.4989/1.105
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=20000 phase=(1, 2, 4, 8) inductionN8=0.6747/0.665 singleN8=0.5758/0.916
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=21000 phase=(1, 2, 4, 8) inductionN8=0.6855/0.638 singleN8=0.5864/0.896
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=22000 phase=(1, 2, 4, 8) inductionN8=0.6800/0.653 singleN8=0.5748/0.909
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=23000 phase=(1, 2, 4, 8) inductionN8=0.6804/0.669 singleN8=0.5696/0.916
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=24000 phase=(1, 2, 4, 8) inductionN8=0.7002/0.589 singleN8=0.5930/0.857
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=25000 phase=(1, 2, 4, 8) inductionN8=0.7067/0.579 singleN8=0.6031/0.851
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=26000 phase=(1, 2, 4, 8) inductionN8=0.7021/0.595 singleN8=0.5935/0.864
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=27000 phase=(1, 2, 4, 8) inductionN8=0.7123/0.563 singleN8=0.6074/0.834
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=28000 phase=(1, 2, 4, 8) inductionN8=0.7078/0.572 singleN8=0.6001/0.840
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=29000 phase=(1, 2, 4, 8) inductionN8=0.6797/0.691 singleN8=0.5748/0.899
+[B0E.1] stage_b0e_b01_induction_v8_seed0 step=30000 phase=(1, 2, 4, 8) inductionN8=0.7126/0.559 singleN8=0.5995/0.841
+/root/miniconda3/envs/mamba2/lib/python3.10/site-packages/torch/nn/modules/transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+[B0E.1] starting stage_b0e_b01_induction_v8_seed1
+[B0E.1] stage_b0e_b01_induction_v8_seed1 step=1000 phase=(1, 2) inductionN8=0.3707/4.191 singleN8=0.3700/4.130
+[B0E.1] stage_b0e_b01_induction_v8_seed1 step=2000 phase=(1, 2) inductionN8=0.3767/5.132 singleN8=0.3783/4.964
+[B0E.1] stage_b0e_b01_induction_v8_seed1 step=3000 phase=(1, 2) inductionN8=0.3685/5.302 singleN8=0.3827/5.173
+[B0E.1] stage_b0e_b01_induction_v8_seed1 step=4000 phase=(1, 2) inductionN8=0.3751/5.269 singleN8=0.3835/5.341
+[B0E.1] stage_b0e_b01_induction_v8_seed1 step=5000 phase=(1, 2) inductionN8=0.3634/6.452 singleN8=0.3627/6.589
+[B0E.1] stage_b0e_b01_induction_v8_seed1 step=6000 phase=(1, 2, 4) inductionN8=0.5853/3.142 singleN8=0.5841/3.121
+[B0E.1] stage_b0e_b01_induction_v8_seed1 step=7000 phase=(1, 2, 4) inductionN8=0.5785/3.315 singleN8=0.5831/3.362
+[B0E.1] stage_b0e_b01_induction_v8_seed1 step=8000 phase=(1, 2, 4) inductionN8=0.5774/4.061 singleN8=0.5767/3.796
+[B0E.1] stage_b0e_b01_induction_v8_seed1 step=9000 phase=(1, 2, 4) inductionN8=0.5664/3.220 singleN8=0.5653/3.000
+[B0E.1] stage_b0e_b01_induction_v8_seed1 step=10000 phase=(1, 2, 4) inductionN8=0.5536/3.729 singleN8=0.5637/3.225
+[B0E.1] stage_b0e_b01_induction_v8_seed1 step=11000 phase=(1, 2, 4, 8) inductionN8=0.9985/0.005 singleN8=0.9999/0.001
+[B0E.1] stage_b0e_b01_induction_v8_seed1 step=12000 phase=(1, 2, 4, 8) inductionN8=0.9997/0.001 singleN8=0.9999/0.001
+/root/miniconda3/envs/mamba2/lib/python3.10/site-packages/torch/nn/modules/transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+[B0E.1] starting stage_b0e_b01_induction_v8_seed2
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=1000 phase=(1, 2) inductionN8=0.2107/6.505 singleN8=0.2457/6.215
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=2000 phase=(1, 2) inductionN8=0.1957/7.217 singleN8=0.2383/6.656
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=3000 phase=(1, 2) inductionN8=0.1855/8.143 singleN8=0.2185/7.583
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=4000 phase=(1, 2) inductionN8=0.1895/8.438 singleN8=0.2229/7.947
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=5000 phase=(1, 2) inductionN8=0.1856/7.029 singleN8=0.2239/6.514
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=6000 phase=(1, 2, 4) inductionN8=0.2277/6.586 singleN8=0.2666/6.251
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=7000 phase=(1, 2, 4) inductionN8=0.2166/5.968 singleN8=0.2692/5.981
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=8000 phase=(1, 2, 4) inductionN8=0.2118/6.124 singleN8=0.2518/6.788
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=9000 phase=(1, 2, 4) inductionN8=0.2083/6.988 singleN8=0.2574/6.960
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=10000 phase=(1, 2, 4) inductionN8=0.2031/6.957 singleN8=0.2489/7.696
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=11000 phase=(1, 2, 4, 8) inductionN8=0.5194/1.075 singleN8=0.5712/1.059
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=12000 phase=(1, 2, 4, 8) inductionN8=0.5473/1.016 singleN8=0.5890/0.957
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=13000 phase=(1, 2, 4, 8) inductionN8=0.5092/1.171 singleN8=0.5767/1.034
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=14000 phase=(1, 2, 4, 8) inductionN8=0.5423/1.030 singleN8=0.5853/0.972
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=15000 phase=(1, 2, 4, 8) inductionN8=0.5696/0.962 singleN8=0.5986/0.943
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=16000 phase=(1, 2, 4, 8) inductionN8=0.5722/0.959 singleN8=0.5994/0.933
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=17000 phase=(1, 2, 4, 8) inductionN8=0.5714/0.955 singleN8=0.5975/0.938
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=18000 phase=(1, 2, 4, 8) inductionN8=0.5632/0.991 singleN8=0.5974/0.940
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=19000 phase=(1, 2, 4, 8) inductionN8=0.5781/0.942 singleN8=0.6074/0.918
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=20000 phase=(1, 2, 4, 8) inductionN8=0.5796/0.941 singleN8=0.6036/0.920
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=21000 phase=(1, 2, 4, 8) inductionN8=0.5751/0.945 singleN8=0.6044/0.925
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=22000 phase=(1, 2, 4, 8) inductionN8=0.5499/1.055 singleN8=0.5784/0.970
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=23000 phase=(1, 2, 4, 8) inductionN8=0.5869/0.923 singleN8=0.6045/0.927
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=24000 phase=(1, 2, 4, 8) inductionN8=0.5933/0.910 singleN8=0.6105/0.918
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=25000 phase=(1, 2, 4, 8) inductionN8=0.5924/0.917 singleN8=0.5994/0.928
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=26000 phase=(1, 2, 4, 8) inductionN8=0.5989/0.898 singleN8=0.6056/0.918
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=27000 phase=(1, 2, 4, 8) inductionN8=0.6020/0.892 singleN8=0.6106/0.910
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=28000 phase=(1, 2, 4, 8) inductionN8=0.6047/0.894 singleN8=0.6072/0.915
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=29000 phase=(1, 2, 4, 8) inductionN8=0.5987/0.910 singleN8=0.6012/0.919
+[B0E.1] stage_b0e_b01_induction_v8_seed2 step=30000 phase=(1, 2, 4, 8) inductionN8=0.6142/0.866 singleN8=0.6077/0.902
+[stage_b0e] stop after B0E.1 FAIL

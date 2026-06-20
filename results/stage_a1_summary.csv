@@ -1,0 +1,9 @@
+n_pairs,lr,best_acc,final_acc,final_ce,steps,seconds,result_csv,log_jsonl
+1,0.0005,1.0,1.0,5.660694562398261e-09,3000,78.60511565208435,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n1_lr0.0005.csv,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n1_lr0.0005.jsonl
+1,0.001,1.0,1.0,0.0,3000,77.78296041488647,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n1_lr0.001.csv,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n1_lr0.001.jsonl
+2,0.0005,1.0,1.0,6.3035472095407385e-06,5000,134.17398929595947,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n2_lr0.0005.csv,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n2_lr0.0005.jsonl
+2,0.001,0.999755859375,0.998291015625,0.009595351213647518,4000,105.51981377601624,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n2_lr0.001.csv,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n2_lr0.001.jsonl
+4,0.0005,0.9993896484375,0.9993896484375,0.003517948581247765,11000,307.7116255760193,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n4_lr0.0005.csv,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n4_lr0.0005.jsonl
+4,0.001,0.61181640625,0.61181640625,0.6950317732989788,30000,836.5398714542389,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n4_lr0.001.csv,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n4_lr0.001.jsonl
+8,0.0005,0.3309326171875,0.3211669921875,1.5640255250036716,30000,879.4092841148376,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n8_lr0.0005.csv,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n8_lr0.0005.jsonl
+8,0.001,0.3319091796875,0.3201904296875,1.563537523150444,30000,877.9910502433777,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n8_lr0.001.csv,/root/mamba_recall_experiment/runs/20260620_180244/results/a1_tf_n8_lr0.001.jsonl

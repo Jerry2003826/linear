@@ -1,0 +1,4 @@
+substage,recipe,n_values,lr,seed,step,N=1 acc,N=2 acc,N=4 acc,N=8 acc,N=16 acc,N=32 acc,N=64 acc,CE_N8,CE_N16,random_acc,random_CE,status
+B0C.1,curriculum N_VALUES=8,8,0.001,0,30000,1.0000,1.0000,0.6071,0.3938,,,,1.3916,,0.1250,2.0794,completed
+B0C.1,curriculum N_VALUES=8,8,0.001,1,21000,1.0000,1.0000,0.9989,0.9375,,,,0.1990,,0.1250,2.0794,pass_early_stop
+B0C.1,curriculum N_VALUES=8,8,0.001,2,30000,1.0000,0.9988,0.4047,0.3088,,,,1.5943,,0.1250,2.0794,completed

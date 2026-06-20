@@ -1,0 +1,94 @@
+[stage_b0c] run_dir=/root/mamba_recall_experiment/runs/20260620_180244 commit=ec13934 cap_hours=4.00
+/root/miniconda3/envs/mamba2/lib/python3.10/site-packages/torch/nn/modules/transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+/root/miniconda3/envs/mamba2/lib/python3.10/site-packages/torch/nn/modules/transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+[B0C.1] starting stage_b0c_b01_curriculum_v8_seed0
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=1000 phase=(1, 2) N1=1.0000/0.001 N2=0.6614/0.555 N4=0.3419/2.151 N8=0.2151/2.618
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=2000 phase=(1, 2) N1=1.0000/0.000 N2=0.7816/0.600 N4=0.3417/3.587 N8=0.2251/4.166
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=3000 phase=(1, 2) N1=1.0000/0.000 N2=0.9963/0.015 N4=0.3468/6.442 N8=0.2311/7.430
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=4000 phase=(1, 2) N1=1.0000/0.000 N2=0.9990/0.005 N4=0.3429/7.345 N8=0.2252/8.147
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=5000 phase=(1, 2) N1=1.0000/0.000 N2=1.0000/0.000 N4=0.3506/7.852 N8=0.2352/8.781
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=6000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9999/0.002 N4=0.3718/1.219 N8=0.2430/2.028
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=7000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9990/0.004 N4=0.3755/1.199 N8=0.2560/1.909
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=8000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9989/0.005 N4=0.3893/1.182 N8=0.2559/1.846
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=9000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9980/0.011 N4=0.4047/1.162 N8=0.2634/1.893
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=10000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9996/0.003 N4=0.4030/1.157 N8=0.2637/2.092
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=11000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9995/0.004 N4=0.3981/1.178 N8=0.2694/1.646
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=12000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9996/0.001 N4=0.4043/1.151 N8=0.2714/1.637
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=13000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9998/0.001 N4=0.4153/1.150 N8=0.2971/1.644
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=14000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=1.0000/0.000 N4=0.4082/1.150 N8=0.2964/1.630
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=15000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9996/0.005 N4=0.4192/1.147 N8=0.2922/1.634
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=16000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9996/0.003 N4=0.4165/1.140 N8=0.2955/1.636
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=17000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9994/0.003 N4=0.4467/1.120 N8=0.2954/1.627
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=18000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9991/0.006 N4=0.5581/0.911 N8=0.3330/1.593
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=19000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9994/0.003 N4=0.5858/0.798 N8=0.3765/1.475
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=20000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=1.0000/0.000 N4=0.5886/0.784 N8=0.3883/1.439
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=21000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=1.0000/0.001 N4=0.5835/0.780 N8=0.3849/1.417
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=22000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=1.0000/0.000 N4=0.5933/0.739 N8=0.3940/1.413
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=23000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9999/0.001 N4=0.5930/0.752 N8=0.3872/1.418
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=24000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=1.0000/0.001 N4=0.5959/0.737 N8=0.3879/1.405
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=25000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9998/0.002 N4=0.5900/0.739 N8=0.3969/1.399
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=26000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=1.0000/0.000 N4=0.5973/0.725 N8=0.3805/1.436
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=27000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9998/0.000 N4=0.5975/0.729 N8=0.3927/1.399
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=28000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=1.0000/0.000 N4=0.5974/0.724 N8=0.4003/1.382
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=29000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9991/0.004 N4=0.5988/0.726 N8=0.4027/1.385
+[B0C.1] stage_b0c_b01_curriculum_v8_seed0 step=30000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=1.0000/0.000 N4=0.6071/0.705 N8=0.3938/1.392
+/root/miniconda3/envs/mamba2/lib/python3.10/site-packages/torch/nn/modules/transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+[B0C.1] starting stage_b0c_b01_curriculum_v8_seed1
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=1000 phase=(1, 2) N1=1.0000/0.001 N2=0.5586/0.638 N4=0.3317/1.314 N8=0.2125/1.930
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=2000 phase=(1, 2) N1=1.0000/0.000 N2=0.7500/0.452 N4=0.3340/2.322 N8=0.2072/3.343
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=3000 phase=(1, 2) N1=1.0000/0.000 N2=0.9570/0.102 N4=0.3480/4.842 N8=0.2318/5.375
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=4000 phase=(1, 2) N1=1.0000/0.000 N2=0.9899/0.034 N4=0.3503/5.804 N8=0.2329/6.695
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=5000 phase=(1, 2) N1=1.0000/0.000 N2=0.9998/0.001 N4=0.3546/6.327 N8=0.2400/7.388
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=6000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9993/0.007 N4=0.3523/1.216 N8=0.2325/2.112
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=7000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9989/0.004 N4=0.3730/1.193 N8=0.2349/2.339
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=8000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9983/0.009 N4=0.3733/1.189 N8=0.2362/2.314
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=9000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9996/0.003 N4=0.3615/1.289 N8=0.2284/2.570
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=10000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9991/0.006 N4=0.4812/1.025 N8=0.2266/2.618
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=11000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9907/0.028 N4=0.5579/0.806 N8=0.2616/1.693
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=12000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9994/0.002 N4=0.5930/0.729 N8=0.3483/1.408
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=13000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9996/0.002 N4=0.7694/0.438 N8=0.4115/1.286
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=14000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9983/0.015 N4=0.7812/0.354 N8=0.4310/1.232
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=15000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9990/0.007 N4=0.9905/0.055 N8=0.6322/0.883
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=16000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9993/0.006 N4=0.9498/0.206 N8=0.6781/0.754
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=17000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9999/0.002 N4=0.9980/0.011 N8=0.7911/0.565
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=18000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9995/0.006 N4=0.9956/0.029 N8=0.8215/0.528
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=19000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9998/0.001 N4=0.9950/0.027 N8=0.8772/0.369
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=20000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9984/0.020 N4=0.9935/0.055 N8=0.9075/0.281
+[B0C.1] stage_b0c_b01_curriculum_v8_seed1 step=21000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=1.0000/0.000 N4=0.9989/0.006 N8=0.9375/0.199
+/root/miniconda3/envs/mamba2/lib/python3.10/site-packages/torch/nn/modules/transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+[B0C.1] starting stage_b0c_b01_curriculum_v8_seed2
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=1000 phase=(1, 2) N1=1.0000/0.001 N2=0.5834/0.649 N4=0.3392/1.540 N8=0.2150/2.148
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=2000 phase=(1, 2) N1=1.0000/0.000 N2=0.8231/0.377 N4=0.3274/2.849 N8=0.2045/3.291
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=3000 phase=(1, 2) N1=1.0000/0.001 N2=0.6389/0.680 N4=0.3458/1.967 N8=0.2306/2.452
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=4000 phase=(1, 2) N1=1.0000/0.000 N2=0.9232/0.255 N4=0.3385/3.550 N8=0.2330/4.089
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=5000 phase=(1, 2) N1=1.0000/0.000 N2=0.8176/0.330 N4=0.3392/3.574 N8=0.2275/4.153
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=6000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.8036/0.358 N4=0.3491/1.208 N8=0.2439/1.743
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=7000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9442/0.198 N4=0.3638/1.202 N8=0.2540/1.942
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=8000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9548/0.167 N4=0.3684/1.212 N8=0.2462/1.982
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=9000 phase=(1, 2, 4) N1=1.0000/0.001 N2=0.8478/0.284 N4=0.3678/1.192 N8=0.2413/2.292
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=10000 phase=(1, 2, 4) N1=1.0000/0.000 N2=0.9434/0.142 N4=0.3712/1.179 N8=0.2538/2.248
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=11000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9547/0.111 N4=0.3610/1.211 N8=0.2446/1.666
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=12000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9592/0.091 N4=0.3862/1.193 N8=0.2939/1.629
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=13000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9827/0.045 N4=0.3881/1.179 N8=0.2925/1.614
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=14000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9658/0.105 N4=0.3911/1.176 N8=0.2906/1.616
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=15000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9357/0.350 N4=0.3833/1.186 N8=0.2974/1.620
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=16000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9771/0.055 N4=0.3804/1.191 N8=0.2943/1.616
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=17000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9880/0.049 N4=0.3860/1.177 N8=0.2948/1.616
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=18000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9598/0.153 N4=0.3835/1.179 N8=0.3013/1.605
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=19000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9789/0.099 N4=0.3976/1.168 N8=0.2974/1.613
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=20000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9945/0.023 N4=0.3783/1.182 N8=0.2993/1.609
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=21000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9945/0.018 N4=0.3895/1.181 N8=0.3064/1.626
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=22000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9944/0.021 N4=0.3986/1.166 N8=0.3062/1.605
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=23000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9958/0.021 N4=0.3944/1.177 N8=0.3053/1.606
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=24000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9834/0.056 N4=0.3977/1.163 N8=0.3069/1.609
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=25000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9980/0.007 N4=0.3990/1.163 N8=0.3076/1.616
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=26000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9993/0.007 N4=0.4048/1.162 N8=0.3036/1.600
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=27000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9974/0.016 N4=0.4020/1.157 N8=0.3090/1.597
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=28000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9990/0.007 N4=0.3994/1.173 N8=0.3063/1.630
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=29000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9974/0.013 N4=0.4003/1.162 N8=0.3027/1.616
+[B0C.1] stage_b0c_b01_curriculum_v8_seed2 step=30000 phase=(1, 2, 4, 8) N1=1.0000/0.000 N2=0.9988/0.007 N4=0.4047/1.158 N8=0.3088/1.594
+[stage_b0c] stop after B0C.1 FAIL

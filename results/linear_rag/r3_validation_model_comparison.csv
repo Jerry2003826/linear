@@ -1,0 +1,4 @@
+model,test_R@1,test_R@5,test_R@5_std,test_R@10,test_MRR,test_NDCG@10,cond_R@5,dev_test_gap,peak_VRAM_MB,lat_ms_per_q_b1,lat_ms_per_q_b8,n_seeds
+Mamba-130m LoRA (ours),0.6463,0.7453,0.0017,0.8107,0.695,0.7183,0.8155,0.0157,282.0,2779.3,1606.5,3
+Cross-encoder MiniLM-L6 (baseline),0.51,0.709,,0.786,0.6004,0.6395,0.7757,,97.0,387.1,62.4,1
+Pythia-160m LoRA (baseline),0.173,0.3223,0.102,0.3977,0.2532,0.2763,0.3527,0.028,646.0,723.2,936.5,3

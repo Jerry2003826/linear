@@ -1,0 +1,2 @@
+model,tag,topk,test_recall@1,test_recall@5,test_recall@10,test_mrr,test_ndcg@10,test_cond_n,test_cond_recall@5,test_cond_mrr,peak_vram_mb,eval_latency_per_q_ms,eval_latency_per_cand_ms
+cross-encoder/ms-marco-MiniLM-L-6-v2,cross_encoder,100,0.51,0.709,0.786,0.6003689583718117,0.6395283395846744,914,0.7757111597374179,0.6568588165993563,152.1,22.804,0.228

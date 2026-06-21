@@ -1,0 +1,5 @@
+{
+  "cross_encoder": 0.709,
+  "mamba_130m_lora": 0.747,
+  "pythia_160m_lora": 0.418
+}

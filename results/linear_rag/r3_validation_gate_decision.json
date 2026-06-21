@@ -1,0 +1,21 @@
+{
+  "gate": "PARTIAL",
+  "mamba_test_R5_mean": 0.7453,
+  "mamba_test_R5_std": 0.0017,
+  "mamba_dev_test_gap": 0.0157,
+  "cross_encoder_R5": 0.709,
+  "pythia_R5_mean": 0.3223,
+  "pythia_R5_std": 0.102,
+  "mamba_vs_ce_R5_abs": 0.0363,
+  "vram_better_frac_vs_ce": -1.913,
+  "latency_better_frac_vs_ce": -6.18,
+  "efficiency_25pct_better": false,
+  "checks": {
+    "R5>=0.70": true,
+    "std<=0.08": true,
+    "gap<=0.05": true,
+    "R5>=0.95xCE": true,
+    "eff>=25%": false,
+    "pythia_dominates": false
+  }
+}

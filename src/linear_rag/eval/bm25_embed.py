@@ -145,9 +145,21 @@ def main(config_path: str) -> dict:
         emb_err = f"{type(e).__name__}: {e}"
         summary["embedding_error"] = emb_err
 
-    # candidate files: prefer embedding, else BM25
-    cand_rank = emb_rank if emb_ok else bm25_rank
-    cand_source = "embedding" if emb_ok else "bm25"
+    # candidate files: choose the source with the better top-100 recall ceiling
+    # (reranking cannot recover gold that is absent from the candidate set).
+    cand_topk = max(cfg.get("candidate_topk_save", [100, 500]) + [100])
+    bm25_ceiling = sum(1 for q in bm25_rank if gold[q] in bm25_rank[q][:100]) / len(bm25_rank)
+    if emb_ok:
+        emb_ceiling = sum(1 for q in emb_rank if gold[q] in emb_rank[q][:100]) / len(emb_rank)
+        if bm25_ceiling >= emb_ceiling:
+            cand_rank, cand_source = bm25_rank, "bm25"
+        else:
+            cand_rank, cand_source = emb_rank, "embedding"
+        summary["bm25_gold_in_top100"] = round(bm25_ceiling, 6)
+        summary["embedding_gold_in_top100"] = round(emb_ceiling, 6)
+    else:
+        cand_rank, cand_source = bm25_rank, "bm25"
+        summary["bm25_gold_in_top100"] = round(bm25_ceiling, 6)
     for k in cfg.get("candidate_topk_save", [100, 500]):
         save_candidates(cand_rank, None, out_dir, k)
     summary["candidate_source"] = cand_source

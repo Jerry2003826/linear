@@ -169,8 +169,10 @@ def run_r2(cost: CostTracker, r1_summary):
     res, nq, elapsed, ests, overrun = _r2_dryrun_then_run(cost)
     metrics = res["metrics"]
 
-    # gate logic
-    emb_r5 = r1_summary.get("embedding", {}).get("recall@5",
+    # gate logic: the baseline to beat is the ORDERING of the candidate source
+    # that was actually reranked (reranking is capped by that source's top-100).
+    cand_src = r1_summary.get("candidate_source", "embedding")
+    emb_r5 = r1_summary.get(cand_src, {}).get("recall@5",
               r1_summary.get("bm25", {}).get("recall@5", 0))
     mamba = next((m for m in metrics if "mamba" in m["model"] and "recall@5" in m), None)
     pythia = next((m for m in metrics if "pythia" in m["model"] and "recall@5" in m), None)

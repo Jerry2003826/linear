@@ -1,0 +1,11 @@
+{
+  "batches": [
+    1,
+    8,
+    16,
+    32
+  ],
+  "mamba_scoring": "right-pad batched, length-bucketed, spearman 0.9965 vs single",
+  "note": "mamba pass_mask=False (SSM ignores it); read logit at last-real position",
+  "workload_pairs": 2000
+}

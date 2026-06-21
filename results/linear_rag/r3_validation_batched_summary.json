@@ -1,0 +1,33 @@
+{
+  "mamba_ms_per_query": {
+    "1": 1425.5,
+    "8": 183.2,
+    "16": 98.4,
+    "32": 54.6
+  },
+  "ce_ms_per_query": {
+    "1": 266.3,
+    "8": 48.3,
+    "16": 29.8,
+    "32": 20.5
+  },
+  "mamba_vram_mb": {
+    "1": 284.5,
+    "8": 437.7,
+    "16": 610.8,
+    "32": 936.2
+  },
+  "ce_vram_mb": {
+    "1": 97.9,
+    "8": 102.2,
+    "16": 109.7,
+    "32": 123.1
+  },
+  "latency_ratio_mamba_over_ce": {
+    "1": 5.35,
+    "8": 3.79,
+    "16": 3.3,
+    "32": 2.66
+  },
+  "mamba_scoring": "right-pad batched, length-bucketed; spearman 0.9965 & sign-agreement 1.0 vs verified single-pair"
+}

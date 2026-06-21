@@ -74,3 +74,12 @@ def test_empty_candidate_handling():
     model = FakeModel()
     s = yes_no_score(model, tok, "a", device="cpu")
     assert isinstance(s, float)
+
+
+def test_fast_score_matches_two_pass_for_single_token():
+    from linear_rag.eval.scoring import yes_no_score_fast, yes_no_score
+    tok = FakeTokenizer()
+    model = FakeModel()
+    fast = yes_no_score_fast(model, tok, "a", device="cpu")
+    slow = yes_no_score(model, tok, "a", device="cpu")
+    assert abs(fast - slow) < 1e-4

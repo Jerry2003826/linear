@@ -56,3 +56,28 @@ def yes_no_score(model, tokenizer, prompt: str, device,
         model, tokenizer, prompt, no_token, device, max_length
     )
     return yes_lp - no_lp
+
+
+def yes_no_score_fast(model, tokenizer, prompt: str, device,
+                      yes_token: str = " yes", no_token: str = " no",
+                      max_length: int = 512) -> float:
+    """Single forward pass over the prompt; read yes/no logprob from the
+    next-token distribution. Requires yes/no to be single tokens (verified once
+    by the caller). Falls back to the two-pass method for multi-token answers.
+    """
+    import torch
+    import torch.nn.functional as F
+
+    yes_ids = answer_token_ids(tokenizer, yes_token)
+    no_ids = answer_token_ids(tokenizer, no_token)
+    if len(yes_ids) != 1 or len(no_ids) != 1:
+        return yes_no_score(model, tokenizer, prompt, device,
+                            yes_token, no_token, max_length)
+    prompt_ids = tokenizer.encode(prompt, add_special_tokens=False)
+    if len(prompt_ids) > max_length:
+        prompt_ids = prompt_ids[-max_length:]
+    input_ids = torch.tensor([prompt_ids], device=device)
+    with torch.no_grad():
+        logits = model(input_ids).logits
+    lp = F.log_softmax(logits[0, -1].float(), dim=-1)
+    return float(lp[yes_ids[0]].item() - lp[no_ids[0]].item())

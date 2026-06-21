@@ -20,7 +20,7 @@ from ..utils.seeds import seed_everything
 from ..utils.gpu import reset_peak_memory, peak_vram_mb
 from ..data.prompts import build_pairwise_prompt
 from ..eval.candidates import load_candidates
-from ..eval.scoring import sequence_logprob_for_answer
+from ..eval.scoring import yes_no_score_fast
 
 
 def find_lora_targets(model):
@@ -158,9 +158,9 @@ def main(config_path: str, seeds: list | None = None,
                 scores = []
                 for c in cand_ids:
                     prompt = build_pairwise_prompt(q["query_text"], doc_text_map[c])
-                    yl = sequence_logprob_for_answer(model, tok, prompt, yes_tok, device, max_len)
-                    nl = sequence_logprob_for_answer(model, tok, prompt, no_tok, device, max_len)
-                    scores.append(yl - nl)
+                    scores.append(
+                        yes_no_score_fast(model, tok, prompt, device, yes_tok, no_tok, max_len)
+                    )
                 order = np.argsort(-np.array(scores))
                 rankings[qid] = [cand_ids[i] for i in order]
         m = aggregate_metrics(rankings, {q: gold[q] for q in rankings},

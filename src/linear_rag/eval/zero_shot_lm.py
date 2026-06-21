@@ -16,7 +16,7 @@ from ..utils.seeds import seed_everything
 from ..utils.gpu import reset_peak_memory, peak_vram_mb
 from ..data.prompts import build_pairwise_prompt
 from .candidates import load_candidates
-from .scoring import sequence_logprob_for_answer
+from .scoring import yes_no_score_fast
 
 
 def load_models(model_name, dtype, device):
@@ -41,9 +41,9 @@ def score_query(model, tok, query_text, cand_docs, device, yes_tok, no_tok, max_
     scores = []
     for _, dtext in cand_docs:
         prompt = build_pairwise_prompt(query_text, dtext)
-        yl = sequence_logprob_for_answer(model, tok, prompt, yes_tok, device, max_len)
-        nl = sequence_logprob_for_answer(model, tok, prompt, no_tok, device, max_len)
-        scores.append(yl - nl)
+        scores.append(
+            yes_no_score_fast(model, tok, prompt, device, yes_tok, no_tok, max_len)
+        )
     return scores
 
 

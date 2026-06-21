@@ -1,0 +1,18 @@
+{
+  "metrics": [
+    {
+      "eval_queries": 400,
+      "model": "state-spaces/mamba-130m-hf",
+      "mrr": 0.7331948733633515,
+      "n_queries": 400.0,
+      "ndcg@10": 0.757447897396216,
+      "peak_vram_mb": 372.4,
+      "recall@1": 0.6875,
+      "recall@10": 0.8475,
+      "recall@5": 0.7825,
+      "seed": 0,
+      "steps": 3000,
+      "train_time_s": 4518.3
+    }
+  ]
+}

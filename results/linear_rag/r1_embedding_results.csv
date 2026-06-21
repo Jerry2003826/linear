@@ -1,0 +1,2 @@
+method,recall@1,recall@5,recall@10,recall@50,recall@100,recall@500,mrr,ndcg@10,n_queries,index_build_s,encode_docs_s,latency_ms_per_query,throughput_qps
+embedding,0.131,0.3196,0.429,0.6746,0.753,0.9102,0.22637429158834863,0.2628488377235131,5000.0,0.004,1.931,0.13,7712.25

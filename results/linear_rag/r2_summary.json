@@ -1,0 +1,38 @@
+{
+  "metrics": [
+    {
+      "elapsed_s": 4394.38,
+      "est_gpu_hours_full_5000": 1.2207,
+      "latency_ms_per_candidate": 8.7888,
+      "latency_ms_per_query": 878.875,
+      "model": "state-spaces/mamba-130m-hf",
+      "mrr": 0.04652391113024041,
+      "n_queries": 5000.0,
+      "ndcg@10": 0.03886458252714733,
+      "peak_vram_mb": 519.4,
+      "recall@1": 0.0108,
+      "recall@10": 0.0814,
+      "recall@5": 0.0426,
+      "score_margin_gold_vs_rest": -0.0098,
+      "topk": 100
+    },
+    {
+      "elapsed_s": 2554.98,
+      "est_gpu_hours_full_5000": 0.7097,
+      "latency_ms_per_candidate": 5.11,
+      "latency_ms_per_query": 510.996,
+      "model": "EleutherAI/pythia-160m",
+      "mrr": 0.061560824186875154,
+      "n_queries": 5000.0,
+      "ndcg@10": 0.06023102434686169,
+      "peak_vram_mb": 1202.6,
+      "recall@1": 0.0132,
+      "recall@10": 0.1292,
+      "recall@5": 0.068,
+      "score_margin_gold_vs_rest": 0.0386,
+      "topk": 100
+    }
+  ],
+  "n_queries": 5000,
+  "topk": 100
+}

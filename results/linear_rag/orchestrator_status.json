@@ -1,0 +1,166 @@
+{
+  "R0": {
+    "elapsed_s": 18.8,
+    "gate": "PASS",
+    "stats": {
+      "content_hash": "6090c9da57fc973edb7127c41f5f40ecdcbbd18e991cc1b8d5d7f8808a7cbef5",
+      "difficulty_counts": {
+        "adversarial": 525,
+        "easy": 1452,
+        "hard": 1313,
+        "medium": 1710
+      },
+      "distinct_gold_ratio": 0.795,
+      "gold_unique_rate": 1.0,
+      "min_hard_negatives": 25,
+      "n_docs": 10000,
+      "n_queries": 5000,
+      "non_unique_discarded": 0,
+      "query_type_counts": {
+        "code-based": 774,
+        "four-condition": 763,
+        "organization+event": 789,
+        "three-condition": 1222,
+        "two-condition": 1452
+      },
+      "seed": 42
+    }
+  },
+  "R1": {
+    "elapsed_s": 55.1,
+    "gate": "PASS",
+    "note": "",
+    "summary": {
+      "bm25": {
+        "index_build_s": 0.14,
+        "latency_ms_per_query": 7.944,
+        "method": "bm25",
+        "mrr": 0.3468012748935157,
+        "n_queries": 5000.0,
+        "ndcg@10": 0.37989673513267547,
+        "recall@1": 0.2524,
+        "recall@10": 0.545,
+        "recall@100": 0.9156,
+        "recall@5": 0.4282,
+        "recall@50": 0.8616,
+        "recall@500": 0.9976,
+        "throughput_qps": 125.88
+      },
+      "bm25_gold_in_top100": 0.9156,
+      "candidate_source": "bm25",
+      "embedding": {
+        "encode_docs_s": 1.931,
+        "index_build_s": 0.004,
+        "latency_ms_per_query": 0.13,
+        "method": "embedding",
+        "mrr": 0.22637429158834863,
+        "n_queries": 5000.0,
+        "ndcg@10": 0.2628488377235131,
+        "recall@1": 0.131,
+        "recall@10": 0.429,
+        "recall@100": 0.753,
+        "recall@5": 0.3196,
+        "recall@50": 0.6746,
+        "recall@500": 0.9102,
+        "throughput_qps": 7712.25
+      },
+      "embedding_gold_in_top100": 0.753,
+      "gold_in_top100": 0.9156,
+      "gold_in_top500": 0.9976,
+      "topk_list": [
+        1,
+        5,
+        10,
+        50,
+        100,
+        500
+      ]
+    }
+  },
+  "R2": {
+    "elapsed_s": 7237.9,
+    "embedding_recall@5_ref": 0.4282,
+    "gate": "PASS_SIGNAL",
+    "metrics": [
+      {
+        "elapsed_s": 4394.38,
+        "est_gpu_hours_full_5000": 1.2207,
+        "latency_ms_per_candidate": 8.7888,
+        "latency_ms_per_query": 878.875,
+        "model": "state-spaces/mamba-130m-hf",
+        "mrr": 0.04652391113024041,
+        "n_queries": 5000.0,
+        "ndcg@10": 0.03886458252714733,
+        "peak_vram_mb": 519.4,
+        "recall@1": 0.0108,
+        "recall@10": 0.0814,
+        "recall@5": 0.0426,
+        "score_margin_gold_vs_rest": -0.0098,
+        "topk": 100
+      },
+      {
+        "elapsed_s": 2554.98,
+        "est_gpu_hours_full_5000": 0.7097,
+        "latency_ms_per_candidate": 5.11,
+        "latency_ms_per_query": 510.996,
+        "model": "EleutherAI/pythia-160m",
+        "mrr": 0.061560824186875154,
+        "n_queries": 5000.0,
+        "ndcg@10": 0.06023102434686169,
+        "peak_vram_mb": 1202.6,
+        "recall@1": 0.0132,
+        "recall@10": 0.1292,
+        "recall@5": 0.068,
+        "score_margin_gold_vs_rest": 0.0386,
+        "topk": 100
+      }
+    ],
+    "n_queries": 5000
+  },
+  "R2.5": {
+    "gate": "PASS",
+    "n_queries": 5000,
+    "row": {
+      "elapsed_s": 91.14,
+      "est_gpu_hours_full_5000": 0.0253,
+      "latency_ms_per_candidate": 0.1823,
+      "latency_ms_per_query": 18.228,
+      "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "mrr": 0.6131834416078763,
+      "n_queries": 5000.0,
+      "ndcg@10": 0.6522339123372525,
+      "peak_vram_mb": 644.0,
+      "recall@1": 0.52,
+      "recall@10": 0.795,
+      "recall@5": 0.724,
+      "topk": 100
+    }
+  },
+  "R3": {
+    "gate": "PARTIAL",
+    "metrics": [
+      {
+        "eval_queries": 400,
+        "model": "state-spaces/mamba-130m-hf",
+        "mrr": 0.7331948733633515,
+        "n_queries": 400.0,
+        "ndcg@10": 0.757447897396216,
+        "peak_vram_mb": 372.4,
+        "recall@1": 0.6875,
+        "recall@10": 0.8475,
+        "recall@5": 0.7825,
+        "seed": 0,
+        "steps": 3000,
+        "train_time_s": 4518.3
+      }
+    ],
+    "note": "budget 6.0h, ran seeds=[0]",
+    "seeds": [
+      0
+    ]
+  },
+  "R3_decision": {
+    "enter": true,
+    "reasons": []
+  }
+}

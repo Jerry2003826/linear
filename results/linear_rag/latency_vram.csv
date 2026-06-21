@@ -1,0 +1,7 @@
+model_name,stage,batch_size,topk,max_length,dtype,latency_ms_per_query,latency_ms_per_candidate,tokens_per_sec,peak_vram_mb,queries_per_second,notes
+state-spaces/mamba-130m-hf,latency,1,100,52,bfloat16,12.2975,12.2975,4228.5,536.3,81.32,single fwd pass per query
+state-spaces/mamba-130m-hf,latency,4,100,52,bfloat16,2.3371,2.3371,22249.4,586.0,427.87,single fwd pass per query
+state-spaces/mamba-130m-hf,latency,8,100,52,bfloat16,1.1534,1.1534,45085.3,653.0,867.02,single fwd pass per query
+EleutherAI/pythia-160m,latency,1,100,52,bfloat16,5.0304,5.0304,10337.2,901.2,198.79,single fwd pass per query
+EleutherAI/pythia-160m,latency,4,100,52,bfloat16,1.2588,1.2588,41308.1,930.1,794.39,single fwd pass per query
+EleutherAI/pythia-160m,latency,8,100,52,bfloat16,0.6273,0.6273,82894.6,971.8,1594.13,single fwd pass per query

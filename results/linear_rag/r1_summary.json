@@ -1,0 +1,46 @@
+{
+  "bm25": {
+    "index_build_s": 0.14,
+    "latency_ms_per_query": 7.944,
+    "method": "bm25",
+    "mrr": 0.3468012748935157,
+    "n_queries": 5000.0,
+    "ndcg@10": 0.37989673513267547,
+    "recall@1": 0.2524,
+    "recall@10": 0.545,
+    "recall@100": 0.9156,
+    "recall@5": 0.4282,
+    "recall@50": 0.8616,
+    "recall@500": 0.9976,
+    "throughput_qps": 125.88
+  },
+  "bm25_gold_in_top100": 0.9156,
+  "candidate_source": "bm25",
+  "embedding": {
+    "encode_docs_s": 1.931,
+    "index_build_s": 0.004,
+    "latency_ms_per_query": 0.13,
+    "method": "embedding",
+    "mrr": 0.22637429158834863,
+    "n_queries": 5000.0,
+    "ndcg@10": 0.2628488377235131,
+    "recall@1": 0.131,
+    "recall@10": 0.429,
+    "recall@100": 0.753,
+    "recall@5": 0.3196,
+    "recall@50": 0.6746,
+    "recall@500": 0.9102,
+    "throughput_qps": 7712.25
+  },
+  "embedding_gold_in_top100": 0.753,
+  "gold_in_top100": 0.9156,
+  "gold_in_top500": 0.9976,
+  "topk_list": [
+    1,
+    5,
+    10,
+    50,
+    100,
+    500
+  ]
+}

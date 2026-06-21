@@ -1,0 +1,2 @@
+model,seed,recall@1,recall@5,recall@10,mrr,ndcg@10,n_queries,train_time_s,peak_vram_mb,steps,eval_queries
+state-spaces/mamba-130m-hf,0,0.6875,0.7825,0.8475,0.7331948733633515,0.757447897396216,400.0,4518.3,372.4,3000,400

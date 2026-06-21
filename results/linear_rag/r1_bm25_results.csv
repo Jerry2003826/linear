@@ -1,0 +1,2 @@
+method,recall@1,recall@5,recall@10,recall@50,recall@100,recall@500,mrr,ndcg@10,n_queries,index_build_s,latency_ms_per_query,throughput_qps
+bm25,0.2524,0.4282,0.545,0.8616,0.9156,0.9976,0.3468012748935157,0.37989673513267547,5000.0,0.14,7.944,125.88

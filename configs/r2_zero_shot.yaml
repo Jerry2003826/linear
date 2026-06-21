@@ -15,7 +15,9 @@ models_batch2:
   - state-spaces/mamba-370m-hf
   - EleutherAI/pythia-410m
 max_length: 512
-dtype: bfloat16
+# float32 is required: yes/no logprob margins (~0.5-1.0 nats) collapse under
+# bfloat16 rounding, producing identical scores and unreproducible metrics.
+dtype: float32
 score_batch_size: 16
 yes_token: " yes"
 no_token: " no"

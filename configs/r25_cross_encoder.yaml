@@ -1,0 +1,13 @@
+stage: R2.5
+seed: 42
+data_dir: data/synth_rag_v1
+candidates_dir: results/linear_rag
+out_dir: results/linear_rag
+plots_dir: plots/linear_rag
+candidate_source: embedding
+topk: 100
+queries_sample_initial: 500
+model: cross-encoder/ms-marco-MiniLM-L-6-v2
+max_length: 512
+batch_size: 64
+budget_gpu_hours: 1.0

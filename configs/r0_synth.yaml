@@ -1,0 +1,19 @@
+stage: R0
+seed: 42
+n_docs: 10000
+n_queries: 5000
+min_hard_negatives: 20
+out_dir: data/synth_rag_v1
+query_type_weights:
+  two-condition: 0.30
+  three-condition: 0.25
+  four-condition: 0.15
+  code-based: 0.15
+  organization+event: 0.15
+difficulty_map:
+  two-condition: easy
+  three-condition: medium
+  four-condition: hard
+  code-based: hard
+  organization+event: medium
+adversarial_fraction: 0.15

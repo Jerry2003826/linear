@@ -1,0 +1,23 @@
+{
+  "content_hash": "6090c9da57fc973edb7127c41f5f40ecdcbbd18e991cc1b8d5d7f8808a7cbef5",
+  "difficulty_counts": {
+    "adversarial": 525,
+    "easy": 1452,
+    "hard": 1313,
+    "medium": 1710
+  },
+  "distinct_gold_ratio": 0.795,
+  "gold_unique_rate": 1.0,
+  "min_hard_negatives": 25,
+  "n_docs": 10000,
+  "n_queries": 5000,
+  "non_unique_discarded": 0,
+  "query_type_counts": {
+    "code-based": 774,
+    "four-condition": 763,
+    "organization+event": 789,
+    "three-condition": 1222,
+    "two-condition": 1452
+  },
+  "seed": 42
+}

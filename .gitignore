@@ -18,3 +18,21 @@ env/
 # Temporary files
 tmp/
 *.tmp
+
+# Linear-RAG large/runtime artifacts
+checkpoints/
+*.safetensors
+*.bin
+.cache/
+hf_cache/
+wandb/
+data/synth_rag_v1/*.faiss
+results/linear_rag/*.large.parquet
+logs/linear_rag/*.log
+*.npy
+# Regenerable synthetic data (deterministic from seed; keep README + stats.json)
+data/synth_rag_v1/docs.jsonl
+data/synth_rag_v1/queries.jsonl
+data/synth_rag_v1/qrels.tsv
+data/synth_rag_v1/hard_negatives.jsonl
+results/linear_rag/*.parquet

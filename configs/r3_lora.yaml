@@ -1,0 +1,25 @@
+stage: R3
+seed: 42
+data_dir: data/synth_rag_v1
+candidates_dir: results/linear_rag
+out_dir: results/linear_rag
+plots_dir: plots/linear_rag
+ckpt_dir: checkpoints/linear_rag/r3_mamba_lora
+model: state-spaces/mamba-130m-hf
+model_optional: state-spaces/mamba-370m-hf
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+train:
+  max_len: 512
+  bf16: true
+  batch_size: 8
+  grad_acc: 4
+  lr: 2.0e-4
+  steps: 3000
+  eval_interval: 200
+  save_interval: 200
+  seeds: [0, 1, 2]
+budget_gpu_hours: 6.0
+negatives_per_query: 7

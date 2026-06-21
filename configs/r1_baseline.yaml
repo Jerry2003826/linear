@@ -1,0 +1,10 @@
+stage: R1
+seed: 42
+data_dir: data/synth_rag_v1
+out_dir: results/linear_rag
+plots_dir: plots/linear_rag
+embedding_model: BAAI/bge-small-en-v1.5
+topk_list: [1, 5, 10, 50, 100, 500]
+candidate_topk_save: [100, 500]
+embed_batch_size: 256
+device: cuda

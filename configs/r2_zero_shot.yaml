@@ -1,0 +1,22 @@
+stage: R2
+seed: 42
+data_dir: data/synth_rag_v1
+candidates_dir: results/linear_rag
+out_dir: results/linear_rag
+plots_dir: plots/linear_rag
+candidate_source: embedding   # falls back to bm25 if embedding unavailable
+topk: 100
+queries_sample_initial: 500
+queries_sample_expand: [2000, 5000]
+models_batch1:
+  - state-spaces/mamba-130m-hf
+  - EleutherAI/pythia-160m
+models_batch2:
+  - state-spaces/mamba-370m-hf
+  - EleutherAI/pythia-410m
+max_length: 512
+dtype: bfloat16
+score_batch_size: 16
+yes_token: " yes"
+no_token: " no"
+expand_threshold_gpu_hours: 1.5

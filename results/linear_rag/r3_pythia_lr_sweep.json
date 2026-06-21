@@ -1,0 +1,141 @@
+{
+  "mamba_dev_mrr_reference": 0.76,
+  "note": "single seed; warmup+cosine added vs R3.2 bare AdamW; dev-only tuning probe, no test eval",
+  "r3_2_pythia_lr": 0.0002,
+  "results": [
+    {
+      "best_dev_mrr": 0.28399980929596125,
+      "best_step": 1250,
+      "curve": [
+        {
+          "cur_lr": 4.9326121764495596e-05,
+          "dev_mrr": 0.16994713724848132,
+          "dev_recall@1": 0.105,
+          "dev_recall@5": 0.215,
+          "lr": 5e-05,
+          "step": 250,
+          "train_loss": 0.49243722431128845
+        },
+        {
+          "cur_lr": 4.215604094671835e-05,
+          "dev_mrr": 0.1972766361019051,
+          "dev_recall@1": 0.115,
+          "dev_recall@5": 0.24,
+          "lr": 5e-05,
+          "step": 500,
+          "train_loss": 0.9404907167190686
+        },
+        {
+          "cur_lr": 2.9341204441673266e-05,
+          "dev_mrr": 0.25008909063098644,
+          "dev_recall@1": 0.135,
+          "dev_recall@5": 0.345,
+          "lr": 5e-05,
+          "step": 750,
+          "train_loss": 0.5233014192199335
+        },
+        {
+          "cur_lr": 1.509800584902108e-05,
+          "dev_mrr": 0.27535977733342026,
+          "dev_recall@1": 0.165,
+          "dev_recall@5": 0.355,
+          "lr": 5e-05,
+          "step": 1000,
+          "train_loss": 0.6897361897281371
+        },
+        {
+          "cur_lr": 4.112804714676594e-06,
+          "dev_mrr": 0.28399980929596125,
+          "dev_recall@1": 0.195,
+          "dev_recall@5": 0.375,
+          "lr": 5e-05,
+          "step": 1250,
+          "train_loss": 0.45861947746016085
+        },
+        {
+          "cur_lr": 0.0,
+          "dev_mrr": 0.26932636077213484,
+          "dev_recall@1": 0.155,
+          "dev_recall@5": 0.395,
+          "lr": 5e-05,
+          "step": 1500,
+          "train_loss": 0.209995495271869
+        }
+      ],
+      "final_dev_mrr": 0.26932636077213484,
+      "final_dev_recall@5": 0.395,
+      "lr": 5e-05,
+      "peak_dev_recall@5": 0.395,
+      "seed": 0,
+      "steps": 1500,
+      "warmup_ratio": 0.1
+    },
+    {
+      "best_dev_mrr": 0.48632659474516915,
+      "best_step": 1500,
+      "curve": [
+        {
+          "cur_lr": 9.865224352899119e-05,
+          "dev_mrr": 0.18371509474161152,
+          "dev_recall@1": 0.095,
+          "dev_recall@5": 0.26,
+          "lr": 0.0001,
+          "step": 250,
+          "train_loss": 0.6533434963203035
+        },
+        {
+          "cur_lr": 8.43120818934367e-05,
+          "dev_mrr": 0.23585784102240218,
+          "dev_recall@1": 0.155,
+          "dev_recall@5": 0.285,
+          "lr": 0.0001,
+          "step": 500,
+          "train_loss": 0.6681705904775299
+        },
+        {
+          "cur_lr": 5.868240888334653e-05,
+          "dev_mrr": 0.44986532334522605,
+          "dev_recall@1": 0.33,
+          "dev_recall@5": 0.62,
+          "lr": 0.0001,
+          "step": 750,
+          "train_loss": 0.2902733467590224
+        },
+        {
+          "cur_lr": 3.019601169804216e-05,
+          "dev_mrr": 0.46979444142962806,
+          "dev_recall@1": 0.36,
+          "dev_recall@5": 0.605,
+          "lr": 0.0001,
+          "step": 1000,
+          "train_loss": 0.5419342956738546
+        },
+        {
+          "cur_lr": 8.225609429353187e-06,
+          "dev_mrr": 0.45874399946564565,
+          "dev_recall@1": 0.345,
+          "dev_recall@5": 0.605,
+          "lr": 0.0001,
+          "step": 1250,
+          "train_loss": 0.4361760683805187
+        },
+        {
+          "cur_lr": 0.0,
+          "dev_mrr": 0.48632659474516915,
+          "dev_recall@1": 0.375,
+          "dev_recall@5": 0.63,
+          "lr": 0.0001,
+          "step": 1500,
+          "train_loss": 0.2475057158671916
+        }
+      ],
+      "final_dev_mrr": 0.48632659474516915,
+      "final_dev_recall@5": 0.63,
+      "lr": 0.0001,
+      "peak_dev_recall@5": 0.63,
+      "seed": 0,
+      "steps": 1500,
+      "warmup_ratio": 0.1
+    }
+  ]
+}

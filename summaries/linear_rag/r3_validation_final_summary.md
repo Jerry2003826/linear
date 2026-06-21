@@ -79,13 +79,19 @@ overfitting to the evaluation set — the earlier 400-query / single-seed run's
 train-loss→0 overfitting did not corrupt the held-out result.
 
 **3. How does it compare to a fair Transformer-LoRA baseline?**
-Decisively better. Under the *same* split, prompt, positives/negatives, LoRA
-config, steps, seeds and early-stopping, Pythia-160m (a larger Transformer) only
-reached R@5 = 0.322 ± 0.102 and trained unstably (dev MRR peaked at step 250 then
-collapsed; all 3 seeds early-stopped). Caveat: both models used the *same*
-hyperparameters, chosen around Mamba; lr = 2e-4 appears too high for Pythia and a
-Pythia-specific sweep could narrow the gap. Still, "any small LM + LoRA works" is
-not supported — the recipe that makes Mamba excel does not transfer to Pythia.
+Better, but the margin shrinks once Pythia is tuned fairly — and the original
+R3.2 gap was partly a tuning artifact. In R3.2, under the *same* hyperparameters
+chosen around Mamba (lr = 2e-4, bare AdamW, no scheduler), Pythia-160m reached
+only R@5 = 0.322 ± 0.102 and trained unstably (dev MRR peaked at step 250 then
+collapsed). The R3.5 follow-up sweep (see below) shows that was largely a
+missing-LR-schedule problem: with **warmup + cosine decay** and a more suitable
+lr, Pythia no longer collapses and its **dev** Recall@5 roughly doubles to
+**0.63** (lr = 1e-4, single seed, still rising at step 1500). So "any small LM +
+LoRA works" is closer to true than R3.2 suggested. **However, even fairly tuned,
+Pythia (dev R@5 0.63) still trails Mamba (dev R@5 ≈0.76 / test 0.745) at the same
+1500-step budget.** The honest read: Mamba retains an edge under matched
+training budget, but it is a moderate edge, not the decisive one R3.2 implied,
+and a longer Pythia run could narrow it further.
 
 **4. What is the accuracy / latency / VRAM tradeoff?**
 Mamba is the most *accurate* reranker but still not the most efficient — though
@@ -129,8 +135,12 @@ remaining gap.
    artifact — though much smaller than the original 6× figure. Next inference
    optimization to try if pursuing this: a single-token relevance head or
    fixed-length KV-free scoring to cut Mamba's padding-driven VRAM growth.
-2. **Give Pythia a fair hyperparameter sweep** (lower lr, lr schedule) so the
-   baseline comparison cannot be dismissed as "Pythia was mis-tuned."
+2. **[DONE in R3.5] Gave Pythia a fair LR sweep** (warmup + cosine, lr ∈ {5e-5,
+   1e-4}). Result: the R3.2 collapse was largely a missing-scheduler artifact —
+   fairly tuned, Pythia's dev R@5 doubles to 0.63 but still trails Mamba's 0.745.
+   The baseline comparison now holds *with a softer margin*. A natural further
+   check before R4 would be a Pythia run at matched-or-longer budget (it had not
+   saturated at 1500 steps) and a full 3-seed test-set eval of the best lr.
 3. Only if Mamba reaches a genuine latency-or-VRAM advantage at matched accuracy
    should R4 scaling (larger Mamba, more data) be greenlit.
 
@@ -146,6 +156,11 @@ remaining gap.
   is 2.7–5.4× faster and uses less VRAM. What we *can* now say is that the earlier
   6× latency gap was inflated by an unfair measurement; the true gap is smaller
   but still favors the cross-encoder.
+- **Should now soften (per R3.5):** the claim that Mamba "clearly beats" / "the
+  recipe does not transfer to" the Transformer-LoRA baseline. With a fair LR
+  schedule the Transformer baseline more than doubles (dev R@5 0.32→0.63) and the
+  gap to Mamba narrows from decisive to moderate. Mamba still leads at matched
+  budget, but the R3.2 baseline was under-tuned and overstated the gap.
 
 ---
 
@@ -158,7 +173,9 @@ benchmark (~0.3 GPU-h). To keep the baseline strictly fair, steps were held at
 showed 3000 would breach the 8 GPU-h cap; see r3_validation_budget_pause.md).
 Total stayed within the 8 GPU-h cap. No CUDA/PyTorch/mamba-ssm reinstall; no
 toy-KV or legacy Stage B/C runs; checkpoints/HF-cache/large parquet kept out of git.
-The R3.4 follow-up added only inference benchmarking (~0.1 GPU-h), still within cap.
+The R3.4 follow-up added only inference benchmarking (~0.1 GPU-h); the R3.5
+Pythia LR sweep (2 lrs × 1500 steps, single seed each) added ~1.6 GPU-h. Cumulative
+still within the validation budget.
 
 ---
 
@@ -202,3 +219,47 @@ Artifacts: `results/linear_rag/r3_validation_batched_latency.csv`,
 `plots/linear_rag/r3_validation_frontier.png` (3 panels: accuracy-vs-latency,
 accuracy-vs-VRAM, latency-vs-batch); scripts `r3v_batch_score.py` (correctness
 check), `r3v_batch_latency.py`, `r3v_refresh_frontier.py`.
+
+---
+
+## R3.5 — Fair LR sweep for the Pythia-160m baseline (follow-up)
+
+**Motivation:** R3.2 trained Pythia with Mamba's hyperparameters (lr = 2e-4,
+bare AdamW, no scheduler) and it collapsed (dev MRR peaked at step 250 then fell;
+test R@5 = 0.322). That left the baseline open to the objection "Pythia was
+mis-tuned, so the comparison is unfair." R3.5 tests that objection directly.
+
+**Setup:** same split, prompt, positives/negatives, LoRA config, step budget
+(1500) and dev-monitoring protocol as R3.2 — the *only* changes are (a) a
+**linear-warmup + cosine-decay** schedule (10% warmup) and (b) a lower lr.
+Swept lr ∈ {5e-5, 1e-4}, single seed (0), dev-only tuning probe (no test eval).
+
+**Result (dev, 200-query monitor subset):**
+
+| lr | scheduler | best dev MRR | best dev R@5 | behavior |
+|---|---|---|---|---|
+| 2e-4 (R3.2) | none | ~0.32 | 0.322 | collapses after step 250 |
+| 5e-5 | warmup+cosine | 0.284 | 0.395 | stable, slow |
+| **1e-4** | warmup+cosine | **0.486** | **0.630** | stable, still rising at 1500 |
+| Mamba (ref) | warmup-free* | ~0.76 | 0.745 (test) | — |
+
+*Mamba used the same bare-AdamW setup as R3.2 and did **not** need a scheduler to
+stay stable — itself a mild point in its favor.
+
+**Takeaway (honest):** the R3.2 Pythia collapse was largely a
+**missing-LR-schedule artifact**, not an inherent Pythia failure. With warmup +
+cosine and lr = 1e-4, Pythia's dev R@5 roughly **doubles (0.32 → 0.63)** and the
+curve no longer collapses. This means the earlier "Mamba clearly/decisively beats
+the Transformer baseline" framing was **too strong** — the gap was inflated by an
+under-tuned baseline. **That said, fairly tuned Pythia (dev R@5 0.63) still trails
+Mamba (dev R@5 ≈0.76 / test 0.745) at the same 1500-step budget**, and Pythia had
+not yet saturated, so a longer run could narrow the gap further. Net: Mamba keeps
+a **moderate** accuracy edge over a fairly tuned same-size Transformer-LoRA
+baseline — promising, but not decisive, and not evidence of architectural
+superiority. A definitive baseline comparison would re-run best-lr Pythia at
+matched-or-longer budget with 3 seeds and a one-shot test eval.
+
+Artifacts: `results/linear_rag/r3_pythia_lr_sweep.csv` / `.json`,
+`plots/linear_rag/r3_pythia_lr_sweep.png` (dev MRR & dev R@5 vs step, both lrs,
+with Mamba reference line); script `scripts/linear_rag/r3v_pythia_lr_sweep.py`
+(reuses the R3.2 trainer's data/prompt/eval helpers; only lr + scheduler differ).

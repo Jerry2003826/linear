@@ -1,0 +1,7 @@
+model,tag,seed,scoring_type,test_recall@1,test_recall@5,test_recall@10,test_mrr,test_ndcg@10,test_cond_recall@5,dev_recall@5,dev_mrr,dev_test_r5_gap,peak_vram_mb,eval_latency_per_q_ms,eval_latency_per_cand_ms
+state-spaces/mamba-130m-hf,r38_mamba_cls,0,classification_head,0.661,0.741,0.804,0.7029,0.7222,0.8107,0.77,0.731,0.029,321.5,117.874,1.1787
+state-spaces/mamba-130m-hf,r38_mamba_cls,1,classification_head,0.659,0.748,0.81,0.7024,0.7235,0.8184,0.775,0.7291,0.027,320.4,124.269,1.2427
+state-spaces/mamba-130m-hf,r38_mamba_cls,2,classification_head,0.659,0.737,0.808,0.7003,0.721,0.8063,0.775,0.7303,0.038,320.4,131.031,1.3103
+EleutherAI/pythia-160m,r38_pythia_cls,0,classification_head,0.406,0.623,0.665,0.5089,0.5415,0.6816,0.632,0.5169,0.009,413.3,67.544,0.6754
+EleutherAI/pythia-160m,r38_pythia_cls,1,classification_head,0.424,0.61,0.643,0.5136,0.5395,0.6674,0.637,0.5357,0.027,413.3,64.02,0.6402
+EleutherAI/pythia-160m,r38_pythia_cls,2,classification_head,0.154,0.391,0.504,0.2722,0.3163,0.4278,0.42,0.2824,0.029,413.3,65.319,0.6532

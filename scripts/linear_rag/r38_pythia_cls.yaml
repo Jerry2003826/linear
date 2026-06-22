@@ -1,0 +1,30 @@
+tag: r38_pythia_cls
+model: EleutherAI/pythia-160m
+data_dir: data/synth_rag_v1
+candidates_dir: results/linear_rag
+split_path: data/synth_rag_v1/splits/r3_validation_split.json
+out_dir: results/linear_rag
+ckpt_dir: checkpoints/linear_rag/r38_pythia_cls
+plot_dir: plots/linear_rag
+eval_topk: 100
+negatives_per_query: 4
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [query_key_value, dense]
+train:
+  seeds: [0, 1, 2]
+  max_len: 512
+  bf16: true
+  batch_size: 8
+  grad_acc: 4
+  eval_batch_size: 16
+  lr: 0.0001
+  scheduler: cosine
+  warmup_ratio: 0.1
+  steps: 2000
+  eval_interval: 250
+  dev_monitor_n: 200
+  early_stopping_patience: 4
+  metric_for_best: mrr

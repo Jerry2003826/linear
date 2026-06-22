@@ -1,0 +1,9 @@
+model,scoring,batch_size,max_len,fwd_ms_per_batch,fwd_ms_per_candidate,peak_vram_mb
+r38_mamba_cls,classification_head,1,512,19.0165,19.0165,265.9
+r38_mamba_cls,classification_head,4,512,16.6509,4.1627,276.1
+r38_mamba_cls,classification_head,8,512,16.8455,2.1057,294.0
+r38_mamba_cls,classification_head,16,512,17.7952,1.1122,318.5
+r38_pythia_cls,classification_head,1,512,9.9973,9.9973,305.9
+r38_pythia_cls,classification_head,4,512,10.7718,2.6929,321.4
+r38_pythia_cls,classification_head,8,512,8.1089,1.0136,350.2
+r38_pythia_cls,classification_head,16,512,8.909,0.5568,400.3

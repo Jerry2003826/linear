@@ -1,0 +1,22 @@
+{
+  "queries_sample": 200,
+  "topk": 100,
+  "batch_sizes": [
+    1,
+    4,
+    8,
+    16
+  ],
+  "max_lens": [
+    256,
+    384,
+    512
+  ],
+  "warmup": 50,
+  "measured": 200,
+  "dtype": "bf16",
+  "device": "NVIDIA GeForce RTX 4090",
+  "mamba_ckpt": "checkpoints/linear_rag/r3_validation/mamba_130m_lora/seed0_best",
+  "pythia_ckpt": "checkpoints/linear_rag/r3_validation/pythia_160m_lora_tuned/seed0_best",
+  "dry_run": false
+}

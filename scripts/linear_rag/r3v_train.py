@@ -194,6 +194,13 @@ def main(config_path, seeds=None, dry_run=False, dry_steps=30, dry_eval=200):
         steps = dry_steps if dry_run else tcfg["steps"]
         bs = tcfg["batch_size"]
         grad_acc = tcfg["grad_acc"]
+        # Optional LR scheduler (default off => original bare-AdamW behavior).
+        # scheduler: 'cosine' enables linear-warmup + cosine-decay.
+        sched = None
+        if tcfg.get("scheduler") == "cosine":
+            from transformers import get_cosine_schedule_with_warmup
+            warmup = int(tcfg.get("warmup_ratio", 0.1) * steps)
+            sched = get_cosine_schedule_with_warmup(opt, warmup, steps)
         eval_interval = dry_eval if dry_run else tcfg.get("eval_interval", 250)
         patience = tcfg.get("early_stopping_patience", 4)
         metric_for_best = tcfg.get("metric_for_best", "mrr")
@@ -231,7 +238,10 @@ def main(config_path, seeds=None, dry_run=False, dry_steps=30, dry_eval=200):
                         tloss = tloss - lp[0, pos, t]
                     (tloss / (bs * grad_acc)).backward()
                     loss_accum += float(tloss.item())
-            opt.step(); opt.zero_grad()
+            opt.step()
+            if sched is not None:
+                sched.step()
+            opt.zero_grad()
             step += 1
             if step % eval_interval == 0 or step == steps:
                 model.eval()

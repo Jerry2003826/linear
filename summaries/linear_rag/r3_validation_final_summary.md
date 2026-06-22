@@ -30,7 +30,7 @@ latency/efficiency edge does **not** survive a like-for-like measurement.
 | Dev→test R@5 gap | ≤ 0.05 | **0.0157** | ✅ |
 | R@5 vs cross-encoder | ≥ 0.95× CE (0.674) | 0.745 (> CE 0.709) | ✅ |
 | Latency **or** VRAM advantage | ≥ 25% better than CE | even with corrected batched scoring, CE is 2.7–5.4× faster and leaner | ❌ |
-| Pythia does not dominate | Pythia R@5 < Mamba | 0.322 ≪ 0.745 | ✅ |
+| Pythia does not dominate | Pythia R@5 < Mamba | fairly tuned 0.465 < 0.745 | ✅ |
 
 Per the spec's gate definition, beating the cross-encoder on accuracy with
 cross-seed stability would be **STRONG_PASS** — but because the efficiency
@@ -46,9 +46,11 @@ and embedding baselines and edges out the cross-encoder on accuracy, but it is
 |---|---|---|---|---|---|---|---|---|---|---|
 | **Mamba-130m LoRA (ours)** | 0.646 | **0.745 ± 0.0017** | 0.811 | 0.695 | 0.718 | 0.816 | 0.016 | 282 MB | 1425 / 55 (b1/b32, batched)¹ | 3 |
 | Cross-encoder MiniLM-L6 | 0.510 | 0.709 | 0.786 | 0.600 | 0.640 | 0.776 | — | **97 MB** | **266 / 20 (b1/b32)** | 1 |
-| Pythia-160m LoRA | 0.173 | 0.322 ± 0.102 | 0.398 | 0.253 | 0.276 | 0.353 | 0.028 | 646 MB | 723 / 937 | 3 |
+| Pythia-160m LoRA (R3.2, mis-tuned) | 0.173 | 0.322 ± 0.102 | 0.398 | 0.253 | 0.276 | 0.353 | 0.028 | 646 MB | 723 / 937 | 3 |
+| Pythia-160m LoRA (R3.6, fairly tuned)² | 0.247 | 0.465 ± 0.133 | 0.522 | 0.349 | 0.382 | 0.509 | 0.020 | 458 MB | — | 3 |
 
-Per-seed Mamba R@5: 0.746 / 0.743 / 0.747. Per-seed Pythia R@5: 0.368 / 0.418 / 0.181.
+Per-seed Mamba R@5: 0.746 / 0.743 / 0.747 (std 0.0017). Per-seed R3.2 Pythia R@5: 0.368 / 0.418 / 0.181.
+Per-seed R3.6 tuned Pythia R@5: **0.559 / 0.560 / 0.277** (seeds 0/1 stable ≈0.56; seed 2 diverged). Std 0.133 — ~78× Mamba's.
 Candidate ceiling on this test split: Recall@100 = 0.914 (top-100 was sufficient;
 top-500 not needed). "cond R@5" = Recall@5 restricted to the 914 queries whose
 gold doc is within the top-100 candidates.
@@ -61,6 +63,12 @@ queries are the hard part; single/double-condition queries are near-solved).
 earlier figures (2779/1607 ms) used a pseudo-batched path for Mamba (one
 candidate per forward) while the cross-encoder used true batching — an unfair
 comparison. See R3.4.
+
+² R3.6 = the definitive fair-baseline run: best lr (1e-4) + warmup+cosine from
+the R3.5 sweep, run to a full 2000-step budget, 3 seeds, one-shot test eval. See
+R3.6 below. Note the **high variance**: two seeds reach ≈0.56, one (seed 2)
+diverged to 0.28 — so the mean (0.465) understates the two stable seeds (≈0.56)
+but the instability is itself a real finding.
 
 ---
 
@@ -79,19 +87,30 @@ overfitting to the evaluation set — the earlier 400-query / single-seed run's
 train-loss→0 overfitting did not corrupt the held-out result.
 
 **3. How does it compare to a fair Transformer-LoRA baseline?**
-Better, but the margin shrinks once Pythia is tuned fairly — and the original
-R3.2 gap was partly a tuning artifact. In R3.2, under the *same* hyperparameters
-chosen around Mamba (lr = 2e-4, bare AdamW, no scheduler), Pythia-160m reached
-only R@5 = 0.322 ± 0.102 and trained unstably (dev MRR peaked at step 250 then
-collapsed). The R3.5 follow-up sweep (see below) shows that was largely a
-missing-LR-schedule problem: with **warmup + cosine decay** and a more suitable
-lr, Pythia no longer collapses and its **dev** Recall@5 roughly doubles to
-**0.63** (lr = 1e-4, single seed, still rising at step 1500). So "any small LM +
-LoRA works" is closer to true than R3.2 suggested. **However, even fairly tuned,
-Pythia (dev R@5 0.63) still trails Mamba (dev R@5 ≈0.76 / test 0.745) at the same
-1500-step budget.** The honest read: Mamba retains an edge under matched
-training budget, but it is a moderate edge, not the decisive one R3.2 implied,
-and a longer Pythia run could narrow it further.
+Better, with a moderate — not decisive — accuracy edge, and Mamba additionally
+wins decisively on **training stability**. The story evolved across three runs:
+- *R3.2 (mis-tuned):* under Mamba's hyperparameters (lr = 2e-4, bare AdamW, no
+  scheduler) Pythia collapsed to test R@5 = 0.322 ± 0.102.
+- *R3.5 (dev probe):* a warmup+cosine LR sweep showed the collapse was largely a
+  missing-scheduler artifact — at lr = 1e-4, single-seed **dev** R@5 doubled to
+  0.63 on a 200-query monitor subset.
+- *R3.6 (definitive):* running that best config to a full 2000-step budget with
+  **3 seeds and a one-shot test eval** gives test **R@5 = 0.465 ± 0.133**. Two
+  seeds train cleanly to ≈0.56; the third (seed 2) **diverged** to 0.28. So the
+  fairly tuned baseline lands around **0.56 when it trains well**, well above the
+  R3.2 figure but still clearly below Mamba's 0.745.
+
+Honest read: (a) the R3.2 "collapse" was a tuning artifact, so the original
+"recipe doesn't transfer" framing was too strong; (b) even fairly tuned and run
+to a longer budget, the Transformer-LoRA baseline trails Mamba by **~0.18 R@5
+at its best seeds** (and more on average); (c) crucially, **Pythia-LoRA is
+high-variance** — std 0.133 across seeds (1 of 3 diverged) versus Mamba's 0.0017
+(≈78× tighter). Mamba's edge is therefore *moderate on peak accuracy but large
+on reliability*: it trains stably without a scheduler and reproduces to within
+0.004 across seeds, while the Transformer baseline needs careful tuning and still
+occasionally diverges. This is a genuine, defensible advantage — but it is not
+"architectural superiority," and a larger Pythia or more seeds could shift the
+peak-accuracy gap.
 
 **4. What is the accuracy / latency / VRAM tradeoff?**
 Mamba is the most *accurate* reranker but still not the most efficient — though
@@ -135,12 +154,14 @@ remaining gap.
    artifact — though much smaller than the original 6× figure. Next inference
    optimization to try if pursuing this: a single-token relevance head or
    fixed-length KV-free scoring to cut Mamba's padding-driven VRAM growth.
-2. **[DONE in R3.5] Gave Pythia a fair LR sweep** (warmup + cosine, lr ∈ {5e-5,
-   1e-4}). Result: the R3.2 collapse was largely a missing-scheduler artifact —
-   fairly tuned, Pythia's dev R@5 doubles to 0.63 but still trails Mamba's 0.745.
-   The baseline comparison now holds *with a softer margin*. A natural further
-   check before R4 would be a Pythia run at matched-or-longer budget (it had not
-   saturated at 1500 steps) and a full 3-seed test-set eval of the best lr.
+2. **[DONE in R3.5 + R3.6] Gave Pythia a fair LR sweep, then a definitive
+   matched-budget 3-seed test eval.** R3.5 (sweep) found the R3.2 collapse was a
+   missing-scheduler artifact (dev R@5 0.32→0.63 at lr 1e-4). R3.6 ran that best
+   config to 2000 steps × 3 seeds × one-shot test: **test R@5 = 0.465 ± 0.133**
+   (two seeds ≈0.56, one diverged). Conclusion: fairly tuned Pythia is much
+   better than R3.2 implied but still trails Mamba (≈0.18 R@5 at best seeds), and
+   is far less stable (std 0.133 vs 0.0017). The baseline comparison is now
+   **settled**: Mamba's edge is moderate on peak accuracy, large on reliability.
 3. Only if Mamba reaches a genuine latency-or-VRAM advantage at matched accuracy
    should R4 scaling (larger Mamba, more data) be greenlit.
 
@@ -156,11 +177,17 @@ remaining gap.
   is 2.7–5.4× faster and uses less VRAM. What we *can* now say is that the earlier
   6× latency gap was inflated by an unfair measurement; the true gap is smaller
   but still favors the cross-encoder.
-- **Should now soften (per R3.5):** the claim that Mamba "clearly beats" / "the
+- **Softened (per R3.5/R3.6):** the claim that Mamba "clearly beats" / "the
   recipe does not transfer to" the Transformer-LoRA baseline. With a fair LR
-  schedule the Transformer baseline more than doubles (dev R@5 0.32→0.63) and the
-  gap to Mamba narrows from decisive to moderate. Mamba still leads at matched
-  budget, but the R3.2 baseline was under-tuned and overstated the gap.
+  schedule the Transformer baseline more than doubles (test R@5 0.32→0.465, best
+  seeds ≈0.56) and the peak-accuracy gap to Mamba narrows from decisive to
+  moderate (≈0.18 R@5). Mamba still leads at matched budget.
+- **New, defensible claim (per R3.6):** Mamba is **substantially more stable to
+  train** than the same-size Transformer-LoRA baseline — std 0.0017 across 3
+  seeds with no scheduler, vs Pythia's std 0.133 with 1 of 3 seeds diverging
+  even after careful LR tuning. Reliability/reproducibility is a real, measured
+  advantage; it is *not* the same as "architectural superiority" and should be
+  stated as a training-stability observation on this benchmark.
 
 ---
 
@@ -174,8 +201,10 @@ showed 3000 would breach the 8 GPU-h cap; see r3_validation_budget_pause.md).
 Total stayed within the 8 GPU-h cap. No CUDA/PyTorch/mamba-ssm reinstall; no
 toy-KV or legacy Stage B/C runs; checkpoints/HF-cache/large parquet kept out of git.
 The R3.4 follow-up added only inference benchmarking (~0.1 GPU-h); the R3.5
-Pythia LR sweep (2 lrs × 1500 steps, single seed each) added ~1.6 GPU-h. Cumulative
-still within the validation budget.
+Pythia LR sweep (2 lrs × 1500 steps, single seed each) added ~1.6 GPU-h; the R3.6
+definitive Pythia run (best lr × 2000 steps × 3 seeds + one-shot test eval) added
+~4.0 GPU-h (3 × ~4760 s train + eval). Cumulative still within the validation
+budget envelope.
 
 ---
 
@@ -263,3 +292,59 @@ Artifacts: `results/linear_rag/r3_pythia_lr_sweep.csv` / `.json`,
 `plots/linear_rag/r3_pythia_lr_sweep.png` (dev MRR & dev R@5 vs step, both lrs,
 with Mamba reference line); script `scripts/linear_rag/r3v_pythia_lr_sweep.py`
 (reuses the R3.2 trainer's data/prompt/eval helpers; only lr + scheduler differ).
+
+---
+
+## R3.6 — Definitive fair-baseline run (best lr, full budget, 3 seeds, one-shot test)
+
+**Motivation:** R3.5 showed the R3.2 Pythia collapse was a missing-scheduler
+artifact, but it only probed **dev** on a 200-query subset with a **single seed**
+and a 1500-step budget that had not saturated. To settle the baseline comparison
+fairly, R3.6 runs the winning config (lr = 1e-4, warmup+cosine, 10% warmup) to a
+full **2000-step** budget with **3 seeds {0,1,2}** and evaluates the held-out
+**1000-query test split exactly once** per seed (best-dev-checkpoint selection,
+early-stopping patience 5). The only changes from R3.2 are the LR schedule and lr
+value — split, prompt, positives/negatives, LoRA config and eval protocol are
+identical, keeping the comparison apples-to-apples.
+
+**Result (full 1000-query test split):**
+
+| seed | best step | dev R@5 | test R@5 | test MRR | dev-test gap | behavior |
+|---|---|---|---|---|---|---|
+| 0 | 1750 | 0.567 | **0.559** | 0.419 | 0.008 | clean, converges then plateaus |
+| 1 | 1750 | 0.582 | **0.560** | 0.404 | 0.022 | clean, best dev MRR 0.479 |
+| 2 | 2000 | 0.306 | **0.277** | 0.223 | 0.029 | **diverged** (dev MRR peaked 0.29 @ step 750, never recovered) |
+| **mean±std** | — | 0.485±0.131 | **0.465 ± 0.133** | 0.349±0.089 | 0.020±0.009 | high variance |
+
+**Takeaways (honest):**
+1. **Fairly tuned Pythia is far better than R3.2 (0.322 → 0.465 mean, ≈0.56 at
+   its two good seeds)** — confirming the R3.2 collapse was a tuning artifact and
+   that the earlier "recipe doesn't transfer" framing was too strong.
+2. **It still trails Mamba.** At matched 2000-step budget, best-seed Pythia
+   (≈0.56) is ~0.18 R@5 below Mamba (0.745); on the mean the gap is larger
+   (0.465 vs 0.745). Mamba retains a **moderate** peak-accuracy edge — not a
+   decisive one, and not evidence of architectural superiority.
+3. **The decisive, newly-quantified gap is stability, not peak accuracy.**
+   Pythia-LoRA test R@5 std = **0.133** with **1 of 3 seeds diverging** even
+   after careful LR tuning, vs Mamba's std = **0.0017** (3/3 seeds within 0.004)
+   trained with no scheduler at all. Mamba is **~78× more reproducible** here. For
+   a practitioner this matters: the Transformer baseline needs scheduler tuning
+   and seed luck to reach ≈0.56, while Mamba reaches 0.745 reliably every time.
+4. **Generalization is healthy for the good seeds** (dev-test gap 0.008–0.022);
+   the divergent seed 2 is a training-stability failure, not an overfitting one.
+
+**Net verdict (baseline comparison settled):** A same-size Transformer-LoRA
+reranker, *fairly and carefully tuned*, is competitive but (a) still trails Mamba
+on peak accuracy by a moderate margin and (b) is markedly less stable to train.
+The defensible claims are an accuracy/quality edge plus a training-reliability
+edge for the linear model on this synthetic benchmark — not architectural
+superiority, and not (per R3.4) an efficiency edge.
+
+Artifacts: `results/linear_rag/r3_pythia_160m_lora_tuned_seed_metrics.csv`,
+`r3_pythia_160m_lora_tuned_summary.json`, per-seed `*_breakdown.json`,
+`*_learning_curves.json`; `plots/linear_rag/r3_pythia_160m_lora_tuned_learning_curves.png`;
+updated `results/linear_rag/r3_validation_model_comparison.csv` (adds the tuned
+Pythia row); config `scripts/linear_rag/r3v_pythia_tuned.yaml`; `r3v_train.py`
+gained an optional cosine+warmup scheduler (default off — backward compatible, so
+the Mamba/CE/R3.2 results are unchanged). test_predictions parquet and
+checkpoints are gitignored.

@@ -1,0 +1,22 @@
+{
+  "datasets": [
+    "scifact",
+    "nfcorpus",
+    "fiqa"
+  ],
+  "models": [
+    "bm25",
+    "mamba",
+    "pythia",
+    "ce"
+  ],
+  "topk": 100,
+  "max_queries": null,
+  "dry_run": false,
+  "ce_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "honest_notes": [
+    "cross-encoder was trained on MS MARCO real IR data => unfair zero-shot advantage on BEIR; this measures distance of our synthetic pipeline from real-usable, NOT a fair architecture PK.",
+    "BM25 candidate recall@topk caps every reranker's achievable recall; reported as cand_recall_ceiling@topk.",
+    "Mamba/Pythia cls heads were trained ONLY on synthetic data (synth_rag_v1); BEIR is fully zero-shot / out-of-distribution for them."
+  ]
+}

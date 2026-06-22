@@ -1,0 +1,7 @@
+dataset,k,candidate_recall@k
+scifact,10,0.7757
+scifact,50,0.8691
+scifact,100,0.8731
+nfcorpus,10,0.1522
+nfcorpus,50,0.2117
+nfcorpus,100,0.2349

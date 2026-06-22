@@ -17,7 +17,7 @@ models = [
     ("Pythia-160m LoRA\n(R3.2 mis-tuned)",  0.3223, 0.102,  3, "#d1d5db"),
 ]
 
-fig, ax = plt.subplots(figsize=(8.2, 5.2))
+fig, ax = plt.subplots(figsize=(9.2, 5.4))
 x = np.arange(len(models))
 means = [m[1] for m in models]
 errs  = [m[2] if m[2] is not None else 0 for m in models]
@@ -37,26 +37,29 @@ for i, m in enumerate(models):
             fontweight="bold" if i == 0 else "normal")
 
 ax.axhline(0.70, ls="--", lw=1, color="#9ca3af")
-ax.text(len(models) - 0.45, 0.705, "gate ≥ 0.70", fontsize=8.5, color="#6b7280")
+ax.text(len(models) - 0.85, 0.712, "gate ≥ 0.70", fontsize=8.5, color="#6b7280")
 
 ax.set_xticks(x)
 ax.set_xticklabels(labels, fontsize=9)
 ax.set_ylabel("Test Recall@5 (held-out 1000 queries)", fontsize=10.5)
-ax.set_ylim(0, 0.86)
+ax.set_xlim(-0.6, 3.95)
+ax.set_ylim(0, 0.88)
 ax.set_title("Reranker accuracy on identical test split\n(error bars = std across 3 seeds)",
              fontsize=12, fontweight="bold")
 ax.spines[["top", "right"]].set_visible(False)
 ax.grid(axis="y", alpha=0.25)
 
-# annotate the stability story
+# annotate the stability story (boxed for contrast)
+bbox_blue = dict(boxstyle="round,pad=0.3", fc="#eff6ff", ec="#2563eb", lw=0.8)
+bbox_org  = dict(boxstyle="round,pad=0.3", fc="#fff7ed", ec="#c2410c", lw=0.8)
 ax.annotate("std 0.0017\n(3/3 seeds within 0.004)",
-            xy=(0, 0.7453), xytext=(0.55, 0.80),
-            fontsize=8, color="#2563eb",
-            arrowprops=dict(arrowstyle="->", color="#2563eb", lw=1))
-ax.annotate("std 0.133 — 1 of 3\nseeds diverged",
-            xy=(2, 0.4653 + 0.1332), xytext=(1.9, 0.70),
-            fontsize=8, color="#b45309",
-            arrowprops=dict(arrowstyle="->", color="#b45309", lw=1))
+            xy=(0.18, 0.748), xytext=(0.62, 0.815),
+            fontsize=8, color="#1e40af", bbox=bbox_blue,
+            arrowprops=dict(arrowstyle="->", color="#2563eb", lw=1.1))
+ax.annotate("std 0.133\n1 of 3 seeds diverged",
+            xy=(2.18, 0.4653 + 0.1332), xytext=(2.42, 0.66),
+            fontsize=8, color="#9a3412", fontweight="bold", bbox=bbox_org,
+            arrowprops=dict(arrowstyle="->", color="#c2410c", lw=1.1))
 
 fig.tight_layout()
 dest = OUT / "r3_validation_recall_comparison.png"
